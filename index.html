@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Musical Journeys — Riddhi Sanyal</title>
+<title>🎵 Musical Journeys — Riddhi Sanyal</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
@@ -82,7 +83,9 @@ nav {
 .instr-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(232,135,26,0.2); border-radius: 10px; padding: 20px 16px; text-align: center; cursor: pointer; transition: all 0.2s; }
 .instr-card:hover { background: rgba(232,135,26,0.1); border-color: var(--saffron); transform: translateY(-3px); }
 .instr-card .icon { font-size: 2rem; margin-bottom: 8px; }
-.instr-card .name { font-size: 0.8rem; color: rgba(255,255,255,0.8); letter-spacing: 0.05em; }
+.instr-card .name { font-size: 0.82rem; color: rgba(255,255,255,0.85); letter-spacing: 0.04em; margin-top: 6px; font-weight: 500; }
+.instr-card .sub { font-size: 0.7rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.mode-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(232,135,26,0.15); border: 1px solid rgba(232,135,26,0.35); color: var(--saffron-light); padding: 8px 18px; border-radius: 20px; font-size: 0.82rem; letter-spacing: 0.03em; margin-bottom: 28px; }
 
 .section { padding: 72px 40px; max-width: 1100px; margin: 0 auto; }
 .section-sm { padding: 48px 40px; max-width: 900px; margin: 0 auto; }
@@ -248,6 +251,7 @@ footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40
       </div>
     </li>
     <li><a href="#" onclick="showPage('books')">📚 Books</a></li>
+    <li><a href="#" onclick="showPage('rabindra')">🌸 Rabindra Sangeet</a></li>
     <li><a href="#" onclick="showPage('about')">About</a></li>
     <li><a href="#" onclick="showPage('contact')">Contact</a></li>
   </ul>
@@ -280,6 +284,7 @@ footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40
     <a href="#" onclick="showPage('ragas');closeMenu()">Indian Classical Ragas</a>
   </div>
   <a href="#" onclick="showPage('books');closeMenu()">📚 Published Books</a>
+  <a href="#" onclick="showPage('rabindra');closeMenu()">🌸 Rabindra Sangeet</a>
   <a href="#" onclick="showPage('about');closeMenu()">About Riddhi Sanyal</a>
   <a href="#" onclick="showPage('contact');closeMenu()">Contact</a>
 </div>
@@ -303,17 +308,121 @@ footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40
     <div class="section-eyebrow">What You Can Learn</div>
     <h2 class="section-title">Instruments We <em>Teach</em></h2>
     <div class="divider"></div>
+    <div class="mode-badge">🎓 Mode of Teaching: &nbsp;<strong>Online &amp; Offline</strong></div>
     <div class="instruments-grid" style="margin-top:0">
-      <div class="instr-card" onclick="showPage('piano')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎹</div><div class="name">Piano</div></div>
-      <div class="instr-card" onclick="showPage('guitar')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎸</div><div class="name">Guitar</div></div>
-      <div class="instr-card" onclick="showPage('ukulele')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🪕</div><div class="name">Ukulele</div></div>
-      <div class="instr-card" onclick="showPage('mandolin')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎻</div><div class="name">Mandolin</div></div>
-      <div class="instr-card" onclick="showPage('banjo')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🪘</div><div class="name">Banjo</div></div>
-      <div class="instr-card" onclick="showPage('harmonica')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎵</div><div class="name">Harmonica</div></div>
-      <div class="instr-card" onclick="showPage('melodica')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎶</div><div class="name">Melodica</div></div>
-      <div class="instr-card" onclick="showPage('bansuri')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎋</div><div class="name">Bansuri</div></div>
-      <div class="instr-card" onclick="showPage('westernflute')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎼</div><div class="name">Western Flute</div></div>
-      <div class="instr-card" onclick="showPage('violin')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎻</div><div class="name">Violin</div></div>
+      <div class="instr-card" onclick="showPage('piano')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎹</div><div class="name">Piano</div><div class="sub">Keyboard Instrument</div></div>
+      <div class="instr-card" onclick="showPage('guitar')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎸</div><div class="name">Guitar</div><div class="sub">Acoustic &amp; Classical</div></div>
+      <div class="instr-card" onclick="showPage('ukulele')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🪕</div><div class="name">Ukulele</div><div class="sub">4-String Hawaiian</div></div>
+      <div class="instr-card" onclick="showPage('mandolin')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff">
+        <div class="icon" style="display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="52">
+            <ellipse cx="25" cy="56" rx="18" ry="22" fill="#c8860a" stroke="#7a5000" stroke-width="1.5"/>
+            <ellipse cx="25" cy="56" rx="10" ry="13" fill="none" stroke="#7a5000" stroke-width="1"/>
+            <ellipse cx="25" cy="58" rx="4.5" ry="5.5" fill="#1a0a00" opacity=".75"/>
+            <rect x="22.5" y="8" width="5" height="34" rx="2.5" fill="#a06010" stroke="#7a5000" stroke-width="1"/>
+            <rect x="21" y="5" width="8" height="6" rx="2" fill="#7a5000"/>
+            <line x1="22.5" y1="18" x2="27.5" y2="18" stroke="#e0c070" stroke-width="1"/>
+            <line x1="22.5" y1="22" x2="27.5" y2="22" stroke="#e0c070" stroke-width="1"/>
+            <line x1="22.5" y1="26" x2="27.5" y2="26" stroke="#e0c070" stroke-width="1"/>
+            <line x1="22.5" y1="30" x2="27.5" y2="30" stroke="#e0c070" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="name">Mandolin</div><div class="sub">8-String Italian Style</div>
+      </div>
+      <div class="instr-card" onclick="showPage('banjo')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff">
+        <div class="icon" style="display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="38" height="52">
+            <circle cx="38" cy="54" r="20" fill="#d4a94a" stroke="#7a5000" stroke-width="1.5"/>
+            <circle cx="38" cy="54" r="15.5" fill="#f5dda0" stroke="#7a5000" stroke-width="1"/>
+            <circle cx="38" cy="54" r="4" fill="#c87800" opacity=".45"/>
+            <rect x="13" y="6" width="5" height="54" rx="2.5" fill="#a06010" stroke="#7a5000" stroke-width="1"/>
+            <rect x="11" y="4" width="9" height="7" rx="2" fill="#7a5000"/>
+            <line x1="13" y1="15" x2="18" y2="15" stroke="#e0c070" stroke-width="1"/>
+            <line x1="13" y1="21" x2="18" y2="21" stroke="#e0c070" stroke-width="1"/>
+            <line x1="13" y1="27" x2="18" y2="27" stroke="#e0c070" stroke-width="1"/>
+            <line x1="13" y1="33" x2="18" y2="33" stroke="#e0c070" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="name">Banjo</div><div class="sub">5-String Bluegrass</div>
+      </div>
+      <div class="instr-card" onclick="showPage('harmonica')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff">
+        <div class="icon" style="display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 72 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="52" height="28">
+            <rect x="1" y="3" width="70" height="30" rx="5" fill="#3a6ec0" stroke="#1a4e9b" stroke-width="1.5"/>
+            <rect x="1" y="3" width="70" height="15" rx="5" fill="#4a80d8" opacity=".8"/>
+            <rect x="6" y="6" width="8" height="9" rx="1.5" fill="#1a3e80"/>
+            <rect x="18" y="6" width="8" height="9" rx="1.5" fill="#1a3e80"/>
+            <rect x="30" y="6" width="8" height="9" rx="1.5" fill="#1a3e80"/>
+            <rect x="42" y="6" width="8" height="9" rx="1.5" fill="#1a3e80"/>
+            <rect x="54" y="6" width="8" height="9" rx="1.5" fill="#1a3e80"/>
+            <rect x="6" y="19" width="8" height="9" rx="1.5" fill="#0e2860"/>
+            <rect x="18" y="19" width="8" height="9" rx="1.5" fill="#0e2860"/>
+            <rect x="30" y="19" width="8" height="9" rx="1.5" fill="#0e2860"/>
+            <rect x="42" y="19" width="8" height="9" rx="1.5" fill="#0e2860"/>
+            <rect x="54" y="19" width="8" height="9" rx="1.5" fill="#0e2860"/>
+          </svg>
+        </div>
+        <div class="name">Harmonica</div><div class="sub">Chromatic &amp; Diatonic</div>
+      </div>
+      <div class="instr-card" onclick="showPage('melodica')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff">
+        <div class="icon" style="display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 72 42" fill="none" xmlns="http://www.w3.org/2000/svg" width="52" height="32">
+            <rect x="1" y="7" width="70" height="28" rx="7" fill="#d03838" stroke="#901818" stroke-width="1.5"/>
+            <rect x="1" y="7" width="70" height="16" rx="7" fill="#e85050" opacity=".8"/>
+            <rect x="8" y="12" width="7" height="18" rx="1.5" fill="white" stroke="#ccc" stroke-width=".5"/>
+            <rect x="18" y="12" width="7" height="18" rx="1.5" fill="white" stroke="#ccc" stroke-width=".5"/>
+            <rect x="28" y="12" width="7" height="18" rx="1.5" fill="white" stroke="#ccc" stroke-width=".5"/>
+            <rect x="38" y="12" width="7" height="18" rx="1.5" fill="white" stroke="#ccc" stroke-width=".5"/>
+            <rect x="48" y="12" width="7" height="18" rx="1.5" fill="white" stroke="#ccc" stroke-width=".5"/>
+            <rect x="58" y="12" width="7" height="18" rx="1.5" fill="white" stroke="#ccc" stroke-width=".5"/>
+            <rect x="13.5" y="12" width="5" height="12" rx="1.5" fill="#222"/>
+            <rect x="23.5" y="12" width="5" height="12" rx="1.5" fill="#222"/>
+            <rect x="43.5" y="12" width="5" height="12" rx="1.5" fill="#222"/>
+            <rect x="53.5" y="12" width="5" height="12" rx="1.5" fill="#222"/>
+            <rect x="1" y="15" width="9" height="9" rx="3" fill="#b02020"/>
+            <rect x="0" y="17" width="5" height="5" rx="2.5" fill="#901818"/>
+          </svg>
+        </div>
+        <div class="name">Melodica</div><div class="sub">Wind Keyboard</div>
+      </div>
+      <div class="instr-card" onclick="showPage('bansuri')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff">
+        <div class="icon" style="display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 72 28" fill="none" xmlns="http://www.w3.org/2000/svg" width="52" height="22">
+            <rect x="1" y="9" width="70" height="10" rx="5" fill="#7a5c2e" stroke="#5a3c10" stroke-width="1.2"/>
+            <rect x="1" y="9" width="70" height="5" rx="5" fill="#9a7040" opacity=".5"/>
+            <ellipse cx="8" cy="12" rx="2.5" ry="2" fill="#3a2000"/>
+            <circle cx="18" cy="14" r="2.8" fill="#3a2000"/>
+            <circle cx="28" cy="14" r="2.8" fill="#3a2000"/>
+            <circle cx="38" cy="14" r="2.8" fill="#3a2000"/>
+            <circle cx="48" cy="14" r="2.8" fill="#3a2000"/>
+            <circle cx="58" cy="14" r="2.8" fill="#3a2000"/>
+            <line x1="23" y1="9" x2="23" y2="19" stroke="#5a3c10" stroke-width=".8" opacity=".5"/>
+            <line x1="53" y1="9" x2="53" y2="19" stroke="#5a3c10" stroke-width=".8" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="name">Bansuri</div><div class="sub">Indian Bamboo Flute</div>
+      </div>
+      <div class="instr-card" onclick="showPage('westernflute')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff">
+        <div class="icon" style="display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 72 28" fill="none" xmlns="http://www.w3.org/2000/svg" width="52" height="22">
+            <rect x="1" y="10" width="70" height="8" rx="4" fill="#b8b8b8" stroke="#888" stroke-width="1.2"/>
+            <rect x="1" y="10" width="70" height="4" rx="4" fill="#e0e0e0" opacity=".7"/>
+            <circle cx="16" cy="14" r="3.5" fill="#999" stroke="#777" stroke-width=".8"/>
+            <circle cx="16" cy="14" r="2" fill="#ccc"/>
+            <circle cx="28" cy="14" r="3.5" fill="#999" stroke="#777" stroke-width=".8"/>
+            <circle cx="28" cy="14" r="2" fill="#ccc"/>
+            <circle cx="40" cy="14" r="3.5" fill="#999" stroke="#777" stroke-width=".8"/>
+            <circle cx="40" cy="14" r="2" fill="#ccc"/>
+            <circle cx="52" cy="14" r="3.5" fill="#999" stroke="#777" stroke-width=".8"/>
+            <circle cx="52" cy="14" r="2" fill="#ccc"/>
+            <circle cx="64" cy="14" r="3.5" fill="#999" stroke="#777" stroke-width=".8"/>
+            <circle cx="64" cy="14" r="2" fill="#ccc"/>
+            <ellipse cx="7" cy="12" rx="2.5" ry="1.8" fill="#666"/>
+          </svg>
+        </div>
+        <div class="name">Western Flute</div><div class="sub">Silver Transverse Flute</div>
+      </div>
+      <div class="instr-card" onclick="showPage('violin')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎻</div><div class="name">Violin</div><div class="sub">Western &amp; Indian Style</div></div>
     </div>
   </div>
   <div style="background:var(--cream2);padding:72px 0">
@@ -349,6 +458,29 @@ footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40
 <div class="page" id="page-piano">
   <div class="page-header"><div class="page-header-eyebrow">Keyboard Instruments</div><h1 class="page-header-title">🎹 Piano</h1><p class="page-header-sub">From first notes to classical pieces — in Sargam &amp; Staff notation</p></div>
   <div class="section">
+    <div class="mode-badge">🎓 Mode of Teaching: &nbsp;<strong>Online &amp; Offline</strong></div>
+    <!-- Featured Book: Piano For Anyone -->
+    <div style="background:linear-gradient(135deg,#1C1008,#2E1A08);border-radius:14px;padding:28px;margin-bottom:36px;display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;border:1px solid rgba(232,135,26,0.3)">
+      <div style="flex:0 0 auto;text-align:center">
+        <img src="https://images-na.ssl-images-amazon.com/images/P/B0G35SKKN8.01.LZZZZZZZ.jpg"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             style="width:110px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.6)" alt="Piano For Anyone"/>
+        <div style="width:110px;height:150px;background:rgba(255,255,255,.08);border-radius:8px;display:none;align-items:center;justify-content:center;font-size:3.5rem;border:1px solid rgba(232,135,26,.3)">🎹</div>
+        <a href="https://www.amazon.in/Piano-Anyone-Learn-Indian-Sargam-ebook/dp/B0G35SKKN8" target="_blank"
+           style="display:inline-block;background:#ff9900;color:#111;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:0.8rem;font-weight:700;margin-top:12px">🛒 Buy on Amazon</a>
+      </div>
+      <div style="flex:1;min-width:220px">
+        <div style="font-size:0.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--saffron);margin-bottom:6px">Featured Book</div>
+        <div style="font-family:var(--serif);font-size:1.2rem;color:#fff;margin-bottom:10px">Piano For Anyone: Learn Piano with Indian Sargam and Staff Notes</div>
+        <p style="color:rgba(255,255,255,.6);font-size:0.88rem;line-height:1.75">A structured learning course designed for all skill levels — Preliminary, Early Beginner, Beginner, and Intermediate. Every notation is meticulously organized in both Indian Sargam and Western Staff notation, with linked audio/video for each exercise.</p>
+        <ul style="color:rgba(255,255,255,.55);font-size:0.82rem;margin-top:10px;padding-left:18px;line-height:1.8">
+          <li>Covers how to read both Staff Notes &amp; Indian Sargam notation</li>
+          <li>Progressive lessons: Prelims → Early Beginner → Beginner → Intermediate</li>
+          <li>EBook contains linked audio / video files for every notation</li>
+          <li>Author: Riddhi Sanyal &nbsp;|&nbsp; Editor: Priyanka Sanyal</li>
+        </ul>
+      </div>
+    </div>
     <p class="lead">Piano is one of the most versatile instruments for understanding music theory. Our lessons cover correct posture, hand position, finger numbering, reading both treble and bass clef, and progressing from simple melodies to harmonised pieces.</p>
     <div class="notation-box"><h4>Piano — C Major Scale (Middle Octave)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam (Indian)</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div></div><div class="notation-col"><h5>Staff Notation (Western)</h5><div class="staff-line">𝄞 &nbsp;♩C4 ♩D4 ♩E4 ♩F4 ♩G4 ♩A4 ♩B4 ♩C5</div></div></div></div>
     <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:32px 0 16px">Learning Path</h3>
@@ -427,6 +559,29 @@ footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40
 <div class="page" id="page-harmonica">
   <div class="page-header"><div class="page-header-eyebrow">Wind Instrument</div><h1 class="page-header-title">🎵 Harmonica / Mouth Organ</h1><p class="page-header-sub">Chromatic &amp; diatonic — Indian melodies, blues, classical and beyond</p></div>
   <div class="section">
+    <div class="mode-badge">🎓 Mode of Teaching: &nbsp;<strong>Online &amp; Offline</strong></div>
+    <!-- Featured Book: Mouth Organ for Everyone -->
+    <div style="background:linear-gradient(135deg,#1a0828,#2e1048);border-radius:14px;padding:28px;margin-bottom:36px;display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;border:1px solid rgba(180,100,255,.3)">
+      <div style="flex:0 0 auto;text-align:center">
+        <img src="https://images-na.ssl-images-amazon.com/images/P/B0BSB2X9WH.01.LZZZZZZZ.jpg"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             style="width:110px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.6)" alt="Mouth Organ for Everyone"/>
+        <div style="width:110px;height:150px;background:rgba(255,255,255,.08);border-radius:8px;display:none;align-items:center;justify-content:center;font-size:3.5rem;border:1px solid rgba(180,100,255,.3)">🎼</div>
+        <a href="https://www.amazon.in/Mouth-Organ-Everyone-Chromatic-Harmonica-ebook/dp/B0BSB2X9WH" target="_blank"
+           style="display:inline-block;background:#ff9900;color:#111;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:0.8rem;font-weight:700;margin-top:12px">🛒 Buy on Amazon</a>
+      </div>
+      <div style="flex:1;min-width:220px">
+        <div style="font-size:0.7rem;letter-spacing:.15em;text-transform:uppercase;color:#c090ff;margin-bottom:6px">Featured Book</div>
+        <div style="font-family:var(--serif);font-size:1.2rem;color:#fff;margin-bottom:10px">Mouth Organ For Everyone: Learn Chromatic Harmonica — Beginners to Advanced Level</div>
+        <p style="color:rgba(255,255,255,.6);font-size:0.88rem;line-height:1.75">Designed for readers worldwide to learn Chromatic Harmonica from scratch to advanced. Features a unique 3-notation system: Staff Notes + Harmonica Tabs + Indian Sargam. Around 40 graded exercises with key learnings.</p>
+        <ul style="color:rgba(255,255,255,.5);font-size:0.82rem;margin-top:10px;padding-left:18px;line-height:1.9">
+          <li>Preliminary: 10 lessons (~1 month) &nbsp;→&nbsp; Beginners: 10 songs (~2 months)</li>
+          <li>Intermediate: 10 songs (~2–3 months) &nbsp;→&nbsp; Advanced: 10 songs (~3–4 months)</li>
+          <li>Each section includes 15 additional songs for extended practice</li>
+          <li>Publisher: Notion Press &nbsp;|&nbsp; Author: Riddhi Sanyal &nbsp;|&nbsp; Editor: Priyanka Sanyal</li>
+        </ul>
+      </div>
+    </div>
     <p class="lead">Riddhi Sanyal has authored "Mouth Organ For Everyone: Learn Chromatic Harmonica." Our lessons cover both diatonic (C harp) and chromatic harmonica, the unique hole-convention, and playing in Indian Sargam as well as Western Staff notation.</p>
     <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:32px 0 16px">Harmonica Hole Convention (C Diatonic — 10 Hole)</h3>
     <div class="harp-diagram">
@@ -485,6 +640,42 @@ footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40
 <div class="page" id="page-bansuri">
   <div class="page-header"><div class="page-header-eyebrow">Indian Flute</div><h1 class="page-header-title">🎋 Bansuri</h1><p class="page-header-sub">The voice of the soul — Indian bamboo flute, classical &amp; contemporary</p></div>
   <div class="section">
+    <div class="mode-badge">🎓 Mode of Teaching: &nbsp;<strong>Online &amp; Offline</strong></div>
+    <!-- Books: Flute for Everyone + Mouth Organ -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:36px">
+      <!-- Book 1: Flute for Everyone -->
+      <div style="background:linear-gradient(135deg,#0a1828,#162848);border-radius:14px;padding:24px;display:flex;gap:20px;align-items:flex-start;border:1px solid rgba(43,168,152,.3)">
+        <div style="flex:0 0 auto;text-align:center">
+          <img src="https://images-na.ssl-images-amazon.com/images/P/B07Y8DL1K3.01.LZZZZZZZ.jpg"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               style="width:80px;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.5)" alt="Flute for Everyone"/>
+          <div style="width:80px;height:110px;background:rgba(255,255,255,.08);border-radius:6px;display:none;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid rgba(43,168,152,.3)">🎋</div>
+          <a href="https://www.amazon.in/FLUTE-EVERYONE-Learn-Flute-COURSE-ebook/dp/B07Y8DL1K3" target="_blank"
+             style="display:inline-block;background:#ff9900;color:#111;padding:5px 10px;border-radius:5px;text-decoration:none;font-size:0.72rem;font-weight:700;margin-top:8px">🛒 Amazon</a>
+        </div>
+        <div style="flex:1">
+          <div style="font-size:0.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-light);margin-bottom:4px">Bansuri / Flute Book</div>
+          <div style="font-family:var(--serif);font-size:1rem;color:#fff;margin-bottom:8px">Flute for Everyone</div>
+          <p style="color:rgba(255,255,255,.55);font-size:0.8rem;line-height:1.7">Learn Flute in 60 Days — from holding to Ragas. Both Indian Sargam &amp; Staff Notation. Songs: Happy Birthday, Twinkle Twinkle, We Shall Overcome, Jamaican Farewell, Raga Hamsadhwani &amp; Durga.</p>
+        </div>
+      </div>
+      <!-- Book 2: Mouth Organ for Everyone -->
+      <div style="background:linear-gradient(135deg,#1a0828,#2e1048);border-radius:14px;padding:24px;display:flex;gap:20px;align-items:flex-start;border:1px solid rgba(180,100,255,.3)">
+        <div style="flex:0 0 auto;text-align:center">
+          <img src="https://images-na.ssl-images-amazon.com/images/P/B0BSB2X9WH.01.LZZZZZZZ.jpg"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               style="width:80px;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.5)" alt="Mouth Organ for Everyone"/>
+          <div style="width:80px;height:110px;background:rgba(255,255,255,.08);border-radius:6px;display:none;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid rgba(180,100,255,.3)">🎼</div>
+          <a href="https://www.amazon.in/Mouth-Organ-Everyone-Chromatic-Harmonica-ebook/dp/B0BSB2X9WH" target="_blank"
+             style="display:inline-block;background:#ff9900;color:#111;padding:5px 10px;border-radius:5px;text-decoration:none;font-size:0.72rem;font-weight:700;margin-top:8px">🛒 Amazon</a>
+        </div>
+        <div style="flex:1">
+          <div style="font-size:0.65rem;letter-spacing:.15em;text-transform:uppercase;color:#c090ff;margin-bottom:4px">Harmonica Book</div>
+          <div style="font-family:var(--serif);font-size:1rem;color:#fff;margin-bottom:8px">Mouth Organ for Everyone</div>
+          <p style="color:rgba(255,255,255,.55);font-size:0.8rem;line-height:1.7">Chromatic Harmonica from Beginner to Advanced. 3-notation system: Staff + Tabs + Sargam. ~40 exercises. 8–10 month timeline to advanced.</p>
+        </div>
+      </div>
+    </div>
     <p class="lead">Bansuri — the divine bamboo flute of Lord Krishna — is Riddhi Sanyal's primary instrument. Trained under Guruji Sri D. Madhusudan and the author of "Flute for Everyone," Riddhi brings decades of stage performance experience to every lesson. From first blowing to Raga mastery.</p>
     <div class="notation-box"><h4>Bansuri — Sa (Root Note) &amp; Scale (Key C Bansuri)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam (Madhya Saptak)</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div><p style="font-size:0.78rem;color:var(--text-light);margin-top:6px">Lower octave: Mandra · Upper: Taar saptak</p></div><div class="notation-col"><h5>Western Staff (Key C)</h5><div class="staff-line">𝄞 ♩C ♩D ♩E ♩F ♩G ♩A ♩B ♩C'</div></div></div></div>
     <div class="notation-box" style="border-left-color:var(--teal)">
@@ -727,16 +918,133 @@ footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40
   <div class="section">
     <p class="lead">Riddhi Sanyal's books have been read by students in India, USA, Japan, Australia, Canada, UK, France and beyond. Each book provides dual notation — Indian Sargam and Western Staff — along with QR codes / embedded audio files for listening and reference.</p>
     <div class="books-grid">
-      <div class="book-card"><div class="book-spine"></div><div class="book-cover-area">🎋</div><div class="book-info"><span class="book-badge top">Most Popular</span><div class="book-title">Flute for Everyone — Learn Flute in 60 Days</div><div class="book-desc">Beginner to advanced Bansuri/Flute course. Dual Indian &amp; Staff notation. Prelims, songs, ragas. Embedded audio in Kindle.</div><a href="https://www.amazon.in/FLUTE-EVERYONE-Learn-Flute-COURSE/dp/B07Y8DL1K3" target="_blank" class="book-link">View on Amazon →</a></div></div>
-      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,var(--teal),var(--teal-light))"></div><div class="book-cover-area">🎵</div><div class="book-info"><span class="book-badge top">Bestseller</span><div class="book-title">Mouth Organ for Everyone — Chromatic Harmonica</div><div class="book-desc">Beginners to advanced level chromatic harmonica. Hole convention, Indian Sargam, Staff notation, songs, ragas.</div><a href="https://www.amazon.in/Mouth-Organ-Everyone-Chromatic-Harmonica/dp/B0BRDG5KRN" target="_blank" class="book-link">View on Amazon →</a></div></div>
-      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#C44,#E88)"></div><div class="book-cover-area">🎶</div><div class="book-info"><span class="book-badge top">Popular</span><div class="book-title">Tagore Songs Collection in Sheet Music — Vol. 1</div><div class="book-desc">10 Rabindra Sangeet in Staff Notation (Scale C). For vocal, piano, guitar, flute, ukulele, harmonica. With audio links.</div><a href="https://www.amazon.in/dp/B086J8MLJ5" target="_blank" class="book-link">View on Amazon →</a></div></div>
-      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#5A3E8A,#8A6EC4)"></div><div class="book-cover-area">🎶</div><div class="book-info"><span class="book-badge new">New</span><div class="book-title">Tagore Songs Collection in Sheet Music — Vol. 2</div><div class="book-desc">10 more Rabindra Sangeet in Staff Notation. Includes Jodi Tor Daak, Ekla Chalo Re, Tomar Khola Hawa and more.</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="book-link">View on Amazon →</a></div></div>
-      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#1A6B60,#3AB5A5)"></div><div class="book-cover-area">🎻</div><div class="book-info"><span class="book-badge top">Specialist</span><div class="book-title">Violin Notation for Tagore Songs</div><div class="book-desc">Tagore Songs in Staff Notation (Key D — Two Sharps) for Violin, Mandolin. With bow direction markings.</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="book-link">View on Amazon →</a></div></div>
-      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#8A5A10,#C99030)"></div><div class="book-cover-area">🎼</div><div class="book-info"><span class="book-badge top">Multi-Instrument</span><div class="book-title">Best Compositions of D. Madhusudan — Vol. 1</div><div class="book-desc">25 musical lessons in Staff Notes &amp; Indian Notes for Piano, Guitar, Violin, Flute, Banjo, Saxophone, Harmonica.</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="book-link">View on Amazon →</a></div></div>
-      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#6A3060,#B060A0)"></div><div class="book-cover-area">🎼</div><div class="book-info"><span class="book-badge new">New</span><div class="book-title">Best Compositions of D. Madhusudan — Vol. 2</div><div class="book-desc">25 new lessons in Key D &amp; Indian Notes. For Violin, Mandolin, Piano, Guitar, Flute, Banjo, Saxophone, Harmonica, Ukulele.</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="book-link">View on Amazon →</a></div></div>
-      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#2A4A8A,#5080C0)"></div><div class="book-cover-area">📖</div><div class="book-info"><span class="book-badge top">Study Guide</span><div class="book-title">Study Guide on Tagore Songs in Sheet Music</div><div class="book-desc">Companion guide with staff notation at Scale C, musical analysis, and learner guidance for all instruments.</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine"></div><div class="book-cover-area" style="padding:14px"><img src="https://images-na.ssl-images-amazon.com/images/P/B07Y8DL1K3.01.LZZZZZZZ.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" style="width:95px;height:135px;object-fit:cover;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.4)" alt="Flute for Everyone"/><div style="display:none;font-size:2.5rem">🎋</div></div><div class="book-info"><span class="book-badge top">Most Popular</span><div class="book-title">Flute for Everyone — Learn Flute in 60 Days</div><div class="book-desc">Beginner to advanced Bansuri/Flute course. Dual Indian &amp; Staff notation. Prelims, songs, ragas. Embedded audio in Kindle.</div><a href="https://www.amazon.in/FLUTE-EVERYONE-Learn-Flute-COURSE-ebook/dp/B07Y8DL1K3" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,var(--teal),var(--teal-light))"></div><div class="book-cover-area" style="padding:14px"><img src="https://images-na.ssl-images-amazon.com/images/P/B0BSB2X9WH.01.LZZZZZZZ.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" style="width:95px;height:135px;object-fit:cover;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.4)" alt="Mouth Organ"/><div style="display:none;font-size:2.5rem">🎵</div></div><div class="book-info"><span class="book-badge top">Bestseller</span><div class="book-title">Mouth Organ for Everyone — Chromatic Harmonica</div><div class="book-desc">Beginners to advanced level chromatic harmonica. Hole convention, Indian Sargam, Staff notation, songs, ragas.</div><a href="https://www.amazon.in/Mouth-Organ-Everyone-Chromatic-Harmonica-ebook/dp/B0BSB2X9WH" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#C44,#E88)"></div><div class="book-cover-area" style="padding:14px"><img src="https://images-na.ssl-images-amazon.com/images/P/B086J8MLJ5.01.LZZZZZZZ.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" style="width:95px;height:135px;object-fit:cover;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.4)" alt="Study Guide Tagore"/><div style="display:none;font-size:2.5rem">🌸</div></div><div class="book-info"><span class="book-badge top">Popular</span><div class="book-title">Study Guide on Tagore Songs — Beginner</div><div class="book-desc">10 Tagore songs in Staff Notation (Scale C) for Beginner level. Piano, guitar, flute, ukulele, harmonica. With audio links.</div><a href="https://www.amazon.in/Study-Guide-Tagore-Songs-Sheet-ebook/dp/B086J8MLJ5" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#5A3E8A,#8A6EC4)"></div><div class="book-cover-area" style="padding:14px"><img src="https://images-na.ssl-images-amazon.com/images/P/B09H7N3DC1.01.LZZZZZZZ.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" style="width:95px;height:135px;object-fit:cover;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.4)" alt="Tagore Songs Vol 2"/><div style="display:none;font-size:2.5rem">🌸</div></div><div class="book-info"><span class="book-badge new">New</span><div class="book-title">Tagore Songs Collection in Sheet Music — Vol. 2</div><div class="book-desc">10 Tagore songs, Scale C, Beginner–Intermediate. Chords (Bass Clef) on each notation. Loved by readers in US, Japan, UK, Australia.</div><a href="https://www.amazon.in/Tagore-Songs-Collection-Sheet-Music-ebook/dp/B09H7N3DC1" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#1A6B60,#3AB5A5)"></div><div class="book-cover-area" style="padding:14px"><img src="https://images-na.ssl-images-amazon.com/images/P/B09XLK6LVP.01.LZZZZZZZ.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" style="width:95px;height:135px;object-fit:cover;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.4)" alt="Violin Tagore"/><div style="display:none;font-size:2.5rem">🎻</div></div><div class="book-info"><span class="book-badge top">Specialist</span><div class="book-title">Violin Notation for Tagore Songs</div><div class="book-desc">Tagore Songs in Staff Notation Key D (Two Sharps) for Violin &amp; Mandolin. Bow directions included. Beginner–Intermediate.</div><a href="https://www.amazon.in/Violin-Notation-Tagore-Songs-Rabindranath-ebook/dp/B09XLK6LVP" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#8A5A10,#C99030)"></div><div class="book-cover-area" style="padding:14px"><img src="https://images-na.ssl-images-amazon.com/images/P/B0CHQNNG5J.01.LZZZZZZZ.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" style="width:95px;height:135px;object-fit:cover;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.4)" alt="Best Compositions Vol 1"/><div style="display:none;font-size:2.5rem">🎼</div></div><div class="book-info"><span class="book-badge top">Multi-Instrument</span><div class="book-title">Best Compositions of D. Madhusudan — Vol. 1</div><div class="book-desc">25 lessons in Staff Notes &amp; Indian Notes (Scale C) for Piano, Guitar, Violin, Flute, Banjo, Saxophone, Harmonica. QR-linked videos.</div><a href="https://www.amazon.in/Best-Compositions-Madhusudan-Saxophone-Harmonica-ebook/dp/B0CHQNNG5J" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#6A3060,#B060A0)"></div><div class="book-cover-area" style="padding:14px"><img src="https://images-na.ssl-images-amazon.com/images/P/B0DF7WHZR4.01.LZZZZZZZ.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" style="width:95px;height:135px;object-fit:cover;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.4)" alt="Best Compositions Vol 2"/><div style="display:none;font-size:2.5rem">🎼</div></div><div class="book-info"><span class="book-badge new">New</span><div class="book-title">Best Compositions of D. Madhusudan — Vol. 2</div><div class="book-desc">25 lessons in Key D &amp; Indian Notes for Violin, Mandolin, Piano, Guitar, Flute, Banjo, Saxophone, Harmonica, Ukulele.</div><a href="https://www.amazon.in/Best-Compositions-D-Madhusudan-Mandolin-ebook/dp/B0DF7WHZR4" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#2A4A8A,#5080C0)"></div><div class="book-cover-area" style="padding:14px"><img src="https://images-na.ssl-images-amazon.com/images/P/B0G35SKKN8.01.LZZZZZZZ.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" style="width:95px;height:135px;object-fit:cover;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.4)" alt="Piano For Anyone"/><div style="display:none;font-size:2.5rem">🎹</div></div><div class="book-info"><span class="book-badge new">New</span><div class="book-title">Piano For Anyone</div><div class="book-desc">Learn Piano with Indian Sargam and Staff Notes. Structured course: Prelims → Intermediate. Linked audio/video files.</div><a href="https://www.amazon.in/Piano-Anyone-Learn-Indian-Sargam-ebook/dp/B0G35SKKN8" target="_blank" class="book-link">View on Amazon →</a></div></div>
     </div>
     <div style="text-align:center;margin-top:40px"><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="btn-primary">View All Books on Amazon →</a></div>
+  </div>
+</div>
+
+<!-- RABINDRA SANGEET -->
+<div class="page" id="page-rabindra">
+  <div class="page-header" style="background:linear-gradient(135deg,#0d0a2e 0%,#1a0d3d 55%,#2d1a5c 100%)">
+    <div class="page-header-eyebrow" style="color:#c090ff">🌸 Tagore's Musical World</div>
+    <h1 class="page-header-title" style="color:#d4b0ff">Rabindra <em style="color:#e8d0ff">Sangeet</em></h1>
+    <p class="page-header-sub" style="color:rgba(212,176,255,0.65)">Learn Gurudev Rabindranath Tagore's songs in authentic Sheet Music — for Piano, Guitar, Flute, Violin, Ukulele, Harmonica and all instruments</p>
+  </div>
+  <div class="section">
+    <div class="mode-badge" style="background:rgba(160,100,255,0.15);border-color:rgba(160,100,255,0.35);color:#c090ff">🎓 Mode of Teaching: &nbsp;<strong>Online &amp; Offline</strong></div>
+    <div style="background:linear-gradient(135deg,rgba(13,10,46,.06),rgba(45,26,92,.08));border:1px solid rgba(160,100,255,.2);border-radius:12px;padding:20px 24px;margin-bottom:40px">
+      <p style="font-size:0.93rem;color:var(--text-mid);line-height:1.85;margin:0"><strong>About Rabindra Sangeet:</strong> Rabindranath Tagore composed over 2,000 songs that beautifully blend Indian classical music, folk, Baul, Kirtan, and Western harmonies. Riddhi Sanyal's family has deep roots in this tradition — his mother Smt. Gargi Sanyal learnt directly from the legendary Smt. Suchitra Mitra at Rabithirtha, Kolkata. These books provide <em>authentic sheet music</em> with lyrics, enabling learners worldwide to sing and play Tagore songs on any instrument.</p>
+    </div>
+
+    <!-- BOOK 1: Study Guide (Beginner) -->
+    <div style="background:#fff;border:1px solid #e0d0f5;border-radius:16px;overflow:hidden;margin-bottom:36px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
+      <div style="background:linear-gradient(135deg,#0d0a2e,#2d1a5c);padding:28px 32px;display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+        <div style="flex:0 0 auto;text-align:center">
+          <img src="https://images-na.ssl-images-amazon.com/images/P/B086J8MLJ5.01.LZZZZZZZ.jpg"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               style="width:90px;height:120px;object-fit:cover;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.5)" alt="Study Guide Tagore Songs"/>
+          <div style="width:90px;height:120px;background:rgba(255,255,255,.08);border-radius:6px;display:none;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid rgba(212,176,255,.2)">🌸</div>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <div style="display:inline-block;background:rgba(100,200,100,.18);color:#80e080;border:1px solid rgba(100,200,100,.3);padding:3px 12px;border-radius:12px;font-size:0.72rem;letter-spacing:.05em;margin-bottom:10px">🟢 Beginner Level</div>
+          <div style="font-family:var(--serif);font-size:1.25rem;color:#d4b0ff;margin-bottom:10px">Study Guide on Tagore Songs in Sheet Music</div>
+          <p style="color:rgba(212,176,255,.7);font-size:0.88rem;line-height:1.75">Staff Notation (Scale C) for 10 carefully selected Tagore songs at Beginner level. Audio files recorded in Piano, Flute, Guitar, Ukulele, Church Organ. Chords (Bass Clef) provided. Reviewed &amp; approved by Smt. Gargi Sanyal, student of the legendary Smt. Suchitra Mitra.</p>
+          <a href="https://www.amazon.in/Study-Guide-Tagore-Songs-Sheet-ebook/dp/B086J8MLJ5" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#ff9900;color:#111;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:700;font-size:0.82rem;margin-top:8px">🛒 Buy on Amazon India</a>
+        </div>
+      </div>
+      <div style="padding:28px 32px">
+        <h4 style="font-family:var(--serif);color:#3d2080;font-size:1rem;margin-bottom:16px">🎵 Songs in this Book &nbsp;<span style="font-size:0.78rem;color:var(--text-light);font-weight:400">(Scale C — Beginner)</span></h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px">
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #8060c0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Alo Amar Alo Ogo</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Radiant devotional — joyful &amp; luminous</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #8060c0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Boro Asha Kore</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Song of hope and longing</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #8060c0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Phule Phule Dhole Dhole</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Nature — flowers, bees, breeze</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #8060c0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Megher Kole</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Monsoon imagery, gentle melody</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #8060c0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Aae Tabe Sahachari</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Song of companionship &amp; friendship</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #8060c0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Anandoloke Mongolaloke</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Joyful, auspicious — often sung at dawn</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #8060c0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Pran Chay Chokhu Na</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Romantic longing, lyrical</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #8060c0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Amra Sobai Raja</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Empowering — we are all kings</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #8060c0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Aji Subho Dine</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Auspicious celebration, festive</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #8060c0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Ore Griho Baasi</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Philosophical, serene, inward</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOK 2: Tagore Songs Collection Vol 2 (Intermediate) -->
+    <div style="background:#fff;border:1px solid #e0d0f5;border-radius:16px;overflow:hidden;margin-bottom:36px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
+      <div style="background:linear-gradient(135deg,#0d0a2e,#2d1a5c);padding:28px 32px;display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+        <div style="flex:0 0 auto;text-align:center">
+          <img src="https://images-na.ssl-images-amazon.com/images/P/B09H7N3DC1.01.LZZZZZZZ.jpg"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               style="width:90px;height:120px;object-fit:cover;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.5)" alt="Tagore Songs Collection Vol 2"/>
+          <div style="width:90px;height:120px;background:rgba(255,255,255,.08);border-radius:6px;display:none;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid rgba(212,176,255,.2)">🌸</div>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <div style="display:inline-block;background:rgba(255,200,50,.15);color:#d4a000;border:1px solid rgba(255,200,50,.3);padding:3px 12px;border-radius:12px;font-size:0.72rem;letter-spacing:.05em;margin-bottom:10px">🟡 Intermediate Level</div>
+          <div style="font-family:var(--serif);font-size:1.25rem;color:#d4b0ff;margin-bottom:10px">Tagore Songs Collection in Sheet Music — Volume 2</div>
+          <p style="color:rgba(212,176,255,.7);font-size:0.88rem;line-height:1.75">Staff Notation (Scale C) for 10 Tagore songs at Beginner to Intermediate level. Each notation includes Chords (Bass Clef) for piano/guitar accompaniment. Volume 1 has been loved by readers in US, Japan, Australia, Canada, UK, France. EBook includes embedded music files.</p>
+          <a href="https://www.amazon.in/Tagore-Songs-Collection-Sheet-Music-ebook/dp/B09H7N3DC1" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#ff9900;color:#111;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:700;font-size:0.82rem;margin-top:8px">🛒 Buy on Amazon India</a>
+        </div>
+      </div>
+      <div style="padding:28px 32px">
+        <h4 style="font-family:var(--serif);color:#3d2080;font-size:1rem;margin-bottom:16px">🎵 Songs in this Book &nbsp;<span style="font-size:0.78rem;color:var(--text-light);font-weight:400">(Scale C — Intermediate, with Bass Clef Chords)</span></h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px">
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #6040a0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Anandoloke Mongolaloke</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Full chord arrangement</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #6040a0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Phule Phule Dhole Dhole</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">With bass clef voicing</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #6040a0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Purano Sei Diner Kotha</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Nostalgic — beloved classic</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #6040a0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Boro Asha Kore</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Intermediate harmonics</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #6040a0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Alo Amar Alo Ogo</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Advanced arrangement</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #6040a0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Mayabano Biharini</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Nature poem — mystical forest</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #6040a0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Jagarane Jay Bibhabori</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Dawn raga mood</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #6040a0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Mamo Chitte Niti Nritye</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Devotional dance song</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #6040a0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Amar Mukti Aloy Aloy</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Liberation through light</div></div>
+          <div style="background:#f5f0ff;border-radius:8px;padding:10px 14px;border-left:3px solid #6040a0"><div style="font-weight:700;color:#2d1060;font-size:0.88rem">Tumi Rabe Nirabe</div><div style="color:#6040a0;font-size:0.76rem;margin-top:2px">Silent devotion — sublime</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOK 3: Violin Notation for Tagore Songs (D Scale) -->
+    <div style="background:#fff;border:1px solid #e0d0f5;border-radius:16px;overflow:hidden;margin-bottom:36px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
+      <div style="background:linear-gradient(135deg,#0d0a2e,#2d1a5c);padding:28px 32px;display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+        <div style="flex:0 0 auto;text-align:center">
+          <img src="https://images-na.ssl-images-amazon.com/images/P/B09XLK6LVP.01.LZZZZZZZ.jpg"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               style="width:90px;height:120px;object-fit:cover;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.5)" alt="Violin Notation for Tagore Songs"/>
+          <div style="width:90px;height:120px;background:rgba(255,255,255,.08);border-radius:6px;display:none;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid rgba(212,176,255,.2)">🎻</div>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <div style="display:inline-block;background:rgba(43,168,152,.15);color:#2BA898;border:1px solid rgba(43,168,152,.3);padding:3px 12px;border-radius:12px;font-size:0.72rem;letter-spacing:.05em;margin-bottom:10px">🎻 Violin &amp; Mandolin — D Scale</div>
+          <div style="font-family:var(--serif);font-size:1.25rem;color:#d4b0ff;margin-bottom:10px">Violin Notation for Tagore Songs</div>
+          <p style="color:rgba(212,176,255,.7);font-size:0.88rem;line-height:1.75">Staff Notation in Scale D (Key Signature D — Two Sharps) for 10 Tagore songs. Violin-specific Bow Directions provided for each notation. Also suited for Mandolin, Piano &amp; Guitar (D Scale). Notations verified by Smt. Gargi Sanyal, a direct disciple of the legendary Smt. Suchitra Mitra.</p>
+          <a href="https://www.amazon.in/Violin-Notation-Tagore-Songs-Rabindranath-ebook/dp/B09XLK6LVP" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#ff9900;color:#111;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:700;font-size:0.82rem;margin-top:8px">🛒 Buy on Amazon India</a>
+        </div>
+      </div>
+      <div style="padding:28px 32px">
+        <h4 style="font-family:var(--serif);color:#3d2080;font-size:1rem;margin-bottom:16px">🎻 Songs in this Book &nbsp;<span style="font-size:0.78rem;color:var(--text-light);font-weight:400">(Key D — Two Sharps — with Bow Directions)</span></h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px">
+          <div style="background:#e8f5f2;border-radius:8px;padding:10px 14px;border-left:3px solid #1A7A6E"><div style="font-weight:700;color:#0d3d36;font-size:0.88rem">Anandoloke Mongolaloke</div><div style="color:#1A7A6E;font-size:0.76rem;margin-top:2px">Key D, Bow directions ↓↑</div></div>
+          <div style="background:#e8f5f2;border-radius:8px;padding:10px 14px;border-left:3px solid #1A7A6E"><div style="font-weight:700;color:#0d3d36;font-size:0.88rem">Phule Phule Dhole Dhole</div><div style="color:#1A7A6E;font-size:0.76rem;margin-top:2px">D scale arrangement</div></div>
+          <div style="background:#e8f5f2;border-radius:8px;padding:10px 14px;border-left:3px solid #1A7A6E"><div style="font-weight:700;color:#0d3d36;font-size:0.88rem">Purano Sei Diner Kotha</div><div style="color:#1A7A6E;font-size:0.76rem;margin-top:2px">Nostalgic — lyrical violin</div></div>
+          <div style="background:#e8f5f2;border-radius:8px;padding:10px 14px;border-left:3px solid #1A7A6E"><div style="font-weight:700;color:#0d3d36;font-size:0.88rem">Boro Asha Kore</div><div style="color:#1A7A6E;font-size:0.76rem;margin-top:2px">Violin bow technique focus</div></div>
+          <div style="background:#e8f5f2;border-radius:8px;padding:10px 14px;border-left:3px solid #1A7A6E"><div style="font-weight:700;color:#0d3d36;font-size:0.88rem">Alo Amar Alo Ogo</div><div style="color:#1A7A6E;font-size:0.76rem;margin-top:2px">Bow legato &amp; vibrato</div></div>
+          <div style="background:#e8f5f2;border-radius:8px;padding:10px 14px;border-left:3px solid #1A7A6E"><div style="font-weight:700;color:#0d3d36;font-size:0.88rem">Mayabano Biharini</div><div style="color:#1A7A6E;font-size:0.76rem;margin-top:2px">Flowing, expressive bowing</div></div>
+          <div style="background:#e8f5f2;border-radius:8px;padding:10px 14px;border-left:3px solid #1A7A6E"><div style="font-weight:700;color:#0d3d36;font-size:0.88rem">Jagarane Jay Bibhabori</div><div style="color:#1A7A6E;font-size:0.76rem;margin-top:2px">Dawn song in D scale</div></div>
+          <div style="background:#e8f5f2;border-radius:8px;padding:10px 14px;border-left:3px solid #1A7A6E"><div style="font-weight:700;color:#0d3d36;font-size:0.88rem">Mamo Chitte Niti Nritye</div><div style="color:#1A7A6E;font-size:0.76rem;margin-top:2px">Dance-like bow strokes</div></div>
+          <div style="background:#e8f5f2;border-radius:8px;padding:10px 14px;border-left:3px solid #1A7A6E"><div style="font-weight:700;color:#0d3d36;font-size:0.88rem">Amar Mukti Aloy Aloy</div><div style="color:#1A7A6E;font-size:0.76rem;margin-top:2px">Uplifting — strong bow arm</div></div>
+          <div style="background:#e8f5f2;border-radius:8px;padding:10px 14px;border-left:3px solid #1A7A6E"><div style="font-weight:700;color:#0d3d36;font-size:0.88rem">Tumi Rabe Nirabe</div><div style="color:#1A7A6E;font-size:0.76rem;margin-top:2px">Sublime — pianissimo bow</div></div>
+        </div>
+        <div style="background:#f0f8f5;border-radius:10px;padding:16px 20px;border-left:3px solid #1A7A6E">
+          <p style="font-size:0.86rem;color:var(--text-mid);line-height:1.8;margin:0"><strong>About the D Scale for Violin:</strong> Violin is tuned G–D–A–E. Playing in D scale means the open 2nd string (D) is the root note — this allows open strings as natural drones, giving a rich, resonant classical feel. Each song comes in two formats: (a) compact Solo treble notation for Violin/Mandolin in Key D, and (b) full Treble &amp; Bass sheet with chord symbols for Piano/Guitar ensemble in D scale. Bow direction markings (↓ down-bow, ↑ up-bow) are included throughout.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -831,6 +1139,7 @@ footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40
         <li><a href="#" onclick="showPage('indian-songs')">Indian Songs</a></li>
         <li><a href="#" onclick="showPage('western-songs')">Western Songs</a></li>
         <li><a href="#" onclick="showPage('books')">Published Books</a></li>
+        <li><a href="#" onclick="showPage('rabindra')">🌸 Rabindra Sangeet</a></li>
         <li><a href="#" onclick="showPage('about')">About</a></li>
         <li><a href="#" onclick="showPage('contact')">Contact</a></li>
       </ul>
