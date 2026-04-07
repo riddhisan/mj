@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musical Journeys — Riddhi Sanyal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron: #E8871A;
+  --saffron-light: #F5A843;
+  --saffron-pale: #FFF4E6;
+  --teal: #1A7A6E;
+  --teal-light: #2BA898;
+  --teal-pale: #E6F5F3;
+  --deep: #1C1008;
+  --cream: #FAF6F0;
+  --cream2: #F2EBE0;
+  --gold: #C9972A;
+  --text: #2E1F0A;
+  --text-mid: #5A4030;
+  --text-light: #8A6E58;
+  --border: #DDD0BE;
+  --nav-h: 68px;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  background: rgba(28,16,8,0.96);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; padding: 0 24px;
+  border-bottom: 1px solid rgba(232,135,26,0.25);
+}
+.nav-brand { font-family: var(--serif); font-size: 1.35rem; font-weight: 300; color: var(--saffron-light); letter-spacing: 0.03em; cursor: pointer; text-decoration: none; flex-shrink: 0; }
+.nav-brand span { color: #fff; font-weight: 600; }
+.nav-spacer { flex: 1; }
+.nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+.nav-links > li { position: relative; }
+.nav-links > li > a, .nav-links > li > button { color: rgba(255,255,255,0.82); font-family: var(--sans); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.04em; text-decoration: none; background: none; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; transition: color 0.2s, background 0.2s; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+.nav-links > li > a:hover, .nav-links > li > button:hover { color: var(--saffron-light); background: rgba(232,135,26,0.12); }
+.dropdown { position: absolute; top: calc(100% + 4px); left: 0; background: #1C1008; border: 1px solid rgba(232,135,26,0.3); border-radius: 8px; min-width: 170px; display: none; flex-direction: column; box-shadow: 0 8px 32px rgba(0,0,0,0.5); overflow: hidden; z-index: 999; }
+.nav-links > li:hover .dropdown, .nav-links > li:focus-within .dropdown { display: flex; }
+.dropdown a { color: rgba(255,255,255,0.8); font-size: 0.8rem; padding: 10px 16px; text-decoration: none; transition: background 0.15s, color 0.15s; }
+.dropdown a:hover { background: rgba(232,135,26,0.15); color: var(--saffron-light); }
+.chevron { font-size: 0.65rem; opacity: 0.6; }
+.ham { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.ham span { display: block; width: 22px; height: 2px; background: #fff; margin: 5px 0; border-radius: 2px; transition: 0.3s; }
+.mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: #1C1008; z-index: 999; overflow-y: auto; padding: 20px; }
+.mobile-menu.open { display: block; }
+.mobile-menu a, .mobile-menu button { display: block; padding: 12px 8px; color: rgba(255,255,255,0.85); font-size: 0.9rem; text-decoration: none; background: none; border: none; width: 100%; text-align: left; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.mobile-menu a:hover, .mobile-menu button:hover { color: var(--saffron-light); }
+.mobile-section { margin-left: 16px; }
+.mobile-section-title { color: var(--saffron); font-size: 0.75rem; letter-spacing: 0.1em; padding: 10px 8px 4px; text-transform: uppercase; }
+
+.page { display: none; min-height: 100vh; padding-top: var(--nav-h); }
+.page.active { display: block; }
+
+.hero { min-height: calc(100vh - var(--nav-h)); background: linear-gradient(160deg, #1C1008 0%, #2E1A08 50%, #1A3B35 100%); display: flex; align-items: center; padding: 60px 40px 80px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(232,135,26,0.03) 60px, rgba(232,135,26,0.03) 61px); }
+.hero-content { max-width: 680px; position: relative; z-index: 1; }
+.hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--saffron); margin-bottom: 16px; font-weight: 400; }
+.hero-title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 1.1; color: #fff; margin-bottom: 8px; }
+.hero-title em { font-style: italic; color: var(--saffron-light); }
+.hero-sub { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 300; color: rgba(255,255,255,0.65); margin-bottom: 28px; line-height: 1.5; }
+.hero-desc { font-size: 0.95rem; color: rgba(255,255,255,0.55); max-width: 480px; line-height: 1.8; margin-bottom: 40px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary { background: var(--saffron); color: #fff; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 28px; border-radius: 4px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.1s; display: inline-block; }
+.btn-primary:hover { background: var(--saffron-light); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: rgba(255,255,255,0.8); font-weight: 400; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 13px 28px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
+.btn-outline:hover { border-color: var(--saffron-light); color: var(--saffron-light); }
+.hero-note-strip { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(232,135,26,0.12); border-top: 1px solid rgba(232,135,26,0.2); padding: 12px 40px; font-family: var(--serif); font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.4); letter-spacing: 0.15em; overflow: hidden; white-space: nowrap; }
+.instruments-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin-top: 48px; }
+.instr-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(232,135,26,0.2); border-radius: 10px; padding: 20px 16px; text-align: center; cursor: pointer; transition: all 0.2s; }
+.instr-card:hover { background: rgba(232,135,26,0.1); border-color: var(--saffron); transform: translateY(-3px); }
+.instr-card .icon { font-size: 2rem; margin-bottom: 8px; }
+.instr-card .name { font-size: 0.8rem; color: rgba(255,255,255,0.8); letter-spacing: 0.05em; }
+
+.section { padding: 72px 40px; max-width: 1100px; margin: 0 auto; }
+.section-sm { padding: 48px 40px; max-width: 900px; margin: 0 auto; }
+.section-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--saffron); margin-bottom: 10px; font-weight: 400; }
+.section-title { font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: var(--text); line-height: 1.2; margin-bottom: 20px; }
+.section-title em { color: var(--saffron); font-style: italic; }
+.divider { width: 48px; height: 2px; background: var(--saffron); margin: 20px 0 32px; }
+.divider-center { margin: 20px auto 32px; }
+.text-center { text-align: center; }
+.lead { font-size: 1.05rem; color: var(--text-mid); line-height: 1.9; max-width: 720px; margin-bottom: 20px; }
+.lead-center { margin-left: auto; margin-right: auto; }
+p { margin-bottom: 16px; color: var(--text-mid); line-height: 1.85; font-size: 0.95rem; }
+
+.page-header { background: linear-gradient(135deg, #1C1008 0%, #2E1A08 60%, #1A3B35 100%); padding: 60px 40px 48px; position: relative; overflow: hidden; }
+.page-header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--saffron), var(--teal)); }
+.page-header-eyebrow { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--saffron); margin-bottom: 10px; }
+.page-header-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; color: #fff; line-height: 1.15; }
+.page-header-title em { color: var(--saffron-light); font-style: italic; }
+.page-header-sub { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 10px; }
+
+.notation-box { background: var(--cream2); border: 1px solid var(--border); border-left: 4px solid var(--saffron); border-radius: 0 10px 10px 0; padding: 24px 28px; margin: 28px 0; }
+.notation-box h4 { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--saffron); margin-bottom: 12px; letter-spacing: 0.05em; }
+.notation-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 8px; }
+.notation-col h5 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-light); margin-bottom: 8px; }
+.notes-strip { display: flex; gap: 4px; flex-wrap: wrap; }
+.note { background: var(--deep); color: #fff; font-family: 'Courier New', monospace; font-size: 0.82rem; padding: 5px 10px; border-radius: 4px; letter-spacing: 0.05em; }
+.note.sargam { background: var(--saffron); color: #fff; }
+.note.western { background: var(--teal); color: #fff; }
+.staff-line { font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--text); background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; line-height: 2; letter-spacing: 0.1em; overflow-x: auto; white-space: nowrap; }
+
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+.card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px; transition: box-shadow 0.2s, transform 0.2s; }
+.card:hover { box-shadow: 0 8px 32px rgba(28,16,8,0.1); transform: translateY(-2px); }
+.card-icon { font-size: 1.8rem; margin-bottom: 14px; }
+.card-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--text); margin-bottom: 8px; }
+.card-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; }
+
+.books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px; margin-top: 40px; }
+.book-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.2s; }
+.book-card:hover { box-shadow: 0 12px 40px rgba(28,16,8,0.12); transform: translateY(-3px); }
+.book-spine { height: 6px; background: linear-gradient(90deg, var(--saffron), var(--gold)); }
+.book-cover-area { background: linear-gradient(135deg, var(--cream2), var(--cream)); padding: 32px 24px; text-align: center; font-family: var(--serif); font-size: 2.5rem; }
+.book-info { padding: 20px 20px 24px; }
+.book-badge { display: inline-block; font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 10px; }
+.book-badge.top { background: var(--saffron-pale); color: var(--saffron); }
+.book-badge.new { background: var(--teal-pale); color: var(--teal); }
+.book-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--text); margin-bottom: 8px; line-height: 1.35; }
+.book-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; margin-bottom: 16px; }
+.book-link { display: inline-block; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--saffron); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--saffron); padding-bottom: 1px; transition: color 0.2s; }
+.book-link:hover { color: var(--gold); border-color: var(--gold); }
+
+.raga-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 32px; }
+.raga-card { border: 1px solid var(--border); border-radius: 10px; padding: 22px; background: #fff; }
+.raga-card h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--text); margin-bottom: 4px; }
+.raga-card .raga-type { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 10px; }
+.raga-notes { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 10px; }
+.r-note { font-family: monospace; font-size: 0.78rem; background: var(--saffron-pale); color: var(--saffron); border-radius: 3px; padding: 3px 7px; }
+
+.lesson-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 0.88rem; }
+.lesson-table th { background: var(--deep); color: var(--saffron-light); padding: 12px 16px; text-align: left; font-weight: 500; letter-spacing: 0.05em; font-size: 0.78rem; text-transform: uppercase; }
+.lesson-table td { padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.lesson-table tr:last-child td { border-bottom: none; }
+.lesson-table tr:nth-child(even) td { background: var(--cream2); }
+.lesson-table .sn { font-family: monospace; font-weight: 600; color: var(--saffron); letter-spacing: 0.05em; }
+.lesson-table .wn { font-family: monospace; color: var(--teal); }
+
+.harp-diagram { display: flex; gap: 0; margin: 24px 0; border: 2px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--deep); }
+.harp-hole { flex: 1; min-width: 36px; display: flex; flex-direction: column; align-items: center; padding: 8px 4px; border-right: 1px solid rgba(255,255,255,0.1); font-family: monospace; }
+.harp-hole:last-child { border-right: none; }
+.harp-hole .hole-num { font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+.harp-hole .blow { background: var(--saffron); color: #fff; font-size: 0.7rem; padding: 4px 0; border-radius: 3px; width: 100%; text-align: center; margin-bottom: 3px; }
+.harp-hole .draw { background: var(--teal); color: #fff; font-size: 0.7rem; padding: 4px 0; border-radius: 3px; width: 100%; text-align: center; }
+.harp-legend { display: flex; gap: 20px; font-size: 0.78rem; margin-top: 10px; color: var(--text-mid); }
+.harp-legend span { display: flex; align-items: center; gap: 6px; }
+.leg-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+.progress-list { list-style: none; margin: 24px 0; }
+.progress-list li { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--border); }
+.progress-list li:last-child { border-bottom: none; }
+.step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--saffron); color: #fff; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-content h4 { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+.step-content p { margin: 0; font-size: 0.85rem; color: var(--text-mid); }
+
+.contact-form { max-width: 560px; margin: 0 auto; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 8px; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 13px 16px; border: 1px solid var(--border); border-radius: 6px; font-family: var(--sans); font-size: 0.9rem; background: #fff; color: var(--text); transition: border-color 0.2s; outline: none; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--saffron); }
+.form-group textarea { height: 140px; resize: vertical; }
+.form-success { background: var(--teal-pale); border: 1px solid var(--teal); border-radius: 8px; padding: 20px; color: var(--teal); display: none; }
+
+.about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: start; }
+.about-portrait { background: linear-gradient(135deg, var(--deep), #2E1A08); border-radius: 16px; padding: 40px 30px; text-align: center; border: 1px solid rgba(232,135,26,0.25); }
+.portrait-initial { width: 100px; height: 100px; border-radius: 50%; background: var(--saffron); color: #fff; font-family: var(--serif); font-size: 2.5rem; font-weight: 300; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 3px solid rgba(255,255,255,0.2); }
+.portrait-name { font-family: var(--serif); font-size: 1.3rem; color: #fff; margin-bottom: 4px; }
+.portrait-role { font-size: 0.78rem; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+.portrait-stats { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+.stat { margin-bottom: 14px; }
+.stat-num { font-family: var(--serif); font-size: 1.6rem; color: var(--saffron-light); }
+.stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+
+.genre-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+.genre-chip { padding: 8px 18px; border-radius: 24px; font-size: 0.83rem; font-weight: 400; border: 1px solid var(--border); background: #fff; color: var(--text-mid); cursor: default; transition: all 0.2s; }
+.genre-chip:hover { background: var(--saffron); color: #fff; border-color: var(--saffron); }
+.genre-chip.highlight { background: var(--saffron-pale); color: var(--saffron); border-color: var(--saffron); }
+
+.instr-tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 40px; flex-wrap: wrap; }
+.instr-tab { padding: 12px 22px; font-size: 0.82rem; letter-spacing: 0.05em; background: none; border: none; cursor: pointer; color: var(--text-light); border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; font-family: var(--sans); }
+.instr-tab.active { color: var(--saffron); border-bottom-color: var(--saffron); font-weight: 500; }
+.instr-tab-panel { display: none; }
+.instr-tab-panel.active { display: block; }
+
+footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40px 32px; font-size: 0.82rem; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 40px; }
+.footer-brand { font-family: var(--serif); font-size: 1.2rem; color: var(--saffron-light); margin-bottom: 12px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--saffron-light); }
+.footer-divider { border-color: rgba(255,255,255,0.08); margin: 0; }
+.footer-bottom { max-width: 1100px; margin: 24px auto 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 880px) { .nav-links { display: none; } .ham { display: block; } .about-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } .notation-row { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .section, .section-sm { padding: 48px 20px; } .page-header { padding: 40px 20px 36px; } .hero { padding: 40px 20px 70px; } .hero-btns { flex-direction: column; align-items: flex-start; } .footer-grid { grid-template-columns: 1fr; } .harp-diagram { overflow-x: auto; } .lesson-table { font-size: 0.78rem; } .lesson-table th, .lesson-table td { padding: 8px 10px; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.page.active .page-header, .page.active .hero { animation: fadeUp 0.5s ease forwards; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#" onclick="showPage('home')"><span>Musical</span> Journeys</a>
+  <div class="nav-spacer"></div>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('piano')">Piano</a></li>
+    <li>
+      <button>Strings <span class="chevron">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('guitar')">Guitar</a>
+        <a href="#" onclick="showPage('ukulele')">Ukulele</a>
+        <a href="#" onclick="showPage('mandolin')">Mandolin</a>
+        <a href="#" onclick="showPage('banjo')">Banjo</a>
+      </div>
+    </li>
+    <li><a href="#" onclick="showPage('harmonica')">Harmonica</a></li>
+    <li><a href="#" onclick="showPage('melodica')">Melodica</a></li>
+    <li>
+      <button>Flutes <span class="chevron">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('bansuri')">Bansuri</a>
+        <a href="#" onclick="showPage('westernflute')">Western Flute</a>
+      </div>
+    </li>
+    <li><a href="#" onclick="showPage('violin')">Violin</a></li>
+    <li>
+      <button>Learn <span class="chevron">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('beginners')">Beginner Lessons</a>
+        <a href="#" onclick="showPage('indian-songs')">Indian Songs</a>
+        <a href="#" onclick="showPage('western-songs')">Western Songs</a>
+        <a href="#" onclick="showPage('ragas')">Indian Classical Ragas</a>
+      </div>
+    </li>
+    <li><a href="#" onclick="showPage('books')">📚 Books</a></li>
+    <li><a href="#" onclick="showPage('about')">About</a></li>
+    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+  </ul>
+  <button class="ham" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('home');closeMenu()">Home</a>
+  <a href="#" onclick="showPage('piano');closeMenu()">Piano</a>
+  <div class="mobile-section">
+    <div class="mobile-section-title">Strings</div>
+    <a href="#" onclick="showPage('guitar');closeMenu()">Guitar</a>
+    <a href="#" onclick="showPage('ukulele');closeMenu()">Ukulele</a>
+    <a href="#" onclick="showPage('mandolin');closeMenu()">Mandolin</a>
+    <a href="#" onclick="showPage('banjo');closeMenu()">Banjo</a>
+  </div>
+  <a href="#" onclick="showPage('harmonica');closeMenu()">Harmonica</a>
+  <a href="#" onclick="showPage('melodica');closeMenu()">Melodica</a>
+  <div class="mobile-section">
+    <div class="mobile-section-title">Flutes</div>
+    <a href="#" onclick="showPage('bansuri');closeMenu()">Bansuri</a>
+    <a href="#" onclick="showPage('westernflute');closeMenu()">Western Flute</a>
+  </div>
+  <a href="#" onclick="showPage('violin');closeMenu()">Violin</a>
+  <div class="mobile-section">
+    <div class="mobile-section-title">Learn</div>
+    <a href="#" onclick="showPage('beginners');closeMenu()">Beginner Lessons</a>
+    <a href="#" onclick="showPage('indian-songs');closeMenu()">Indian Songs</a>
+    <a href="#" onclick="showPage('western-songs');closeMenu()">Western Songs</a>
+    <a href="#" onclick="showPage('ragas');closeMenu()">Indian Classical Ragas</a>
+  </div>
+  <a href="#" onclick="showPage('books');closeMenu()">📚 Published Books</a>
+  <a href="#" onclick="showPage('about');closeMenu()">About Riddhi Sanyal</a>
+  <a href="#" onclick="showPage('contact');closeMenu()">Contact</a>
+</div>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Welcome to Musical Journeys</div>
+      <h1 class="hero-title">Learn Music<br>with <em>Riddhi Sanyal</em></h1>
+      <p class="hero-sub">Bridging Indian &amp; Western Musical Traditions</p>
+      <p class="hero-desc">Expert coaching in Bansuri, Flute, Harmonica, Piano, Strings and more — with lessons in both Indian Sargam notation and Western Staff Music. Start your musical journey today.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary" onclick="showPage('beginners')">Start Learning</a>
+        <a href="#" class="btn-outline" onclick="showPage('books')">View Books</a>
+      </div>
+    </div>
+    <div class="hero-note-strip">Sa · Re · Ga · Ma · Pa · Dha · Ni · Sa &nbsp;&nbsp;|&nbsp;&nbsp; C · D · E · F · G · A · B · C &nbsp;&nbsp;|&nbsp;&nbsp; Sa · Re · Ga · Ma · Pa · Dha · Ni · Sa</div>
+  </div>
+  <div class="section">
+    <div class="section-eyebrow">What You Can Learn</div>
+    <h2 class="section-title">Instruments We <em>Teach</em></h2>
+    <div class="divider"></div>
+    <div class="instruments-grid" style="margin-top:0">
+      <div class="instr-card" onclick="showPage('piano')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎹</div><div class="name">Piano</div></div>
+      <div class="instr-card" onclick="showPage('guitar')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎸</div><div class="name">Guitar</div></div>
+      <div class="instr-card" onclick="showPage('ukulele')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🪕</div><div class="name">Ukulele</div></div>
+      <div class="instr-card" onclick="showPage('mandolin')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎻</div><div class="name">Mandolin</div></div>
+      <div class="instr-card" onclick="showPage('banjo')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🪘</div><div class="name">Banjo</div></div>
+      <div class="instr-card" onclick="showPage('harmonica')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎵</div><div class="name">Harmonica</div></div>
+      <div class="instr-card" onclick="showPage('melodica')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎶</div><div class="name">Melodica</div></div>
+      <div class="instr-card" onclick="showPage('bansuri')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎋</div><div class="name">Bansuri</div></div>
+      <div class="instr-card" onclick="showPage('westernflute')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎼</div><div class="name">Western Flute</div></div>
+      <div class="instr-card" onclick="showPage('violin')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff"><div class="icon">🎻</div><div class="name">Violin</div></div>
+    </div>
+  </div>
+  <div style="background:var(--cream2);padding:72px 0">
+    <div class="section" style="padding-top:0;padding-bottom:0">
+      <div class="section-eyebrow text-center">Philosophy</div>
+      <h2 class="section-title text-center">The <em>Dual Notation</em> Approach</h2>
+      <div class="divider divider-center"></div>
+      <p class="lead lead-center text-center">Every lesson is presented in both Indian Sargam (Sa Re Ga Ma Pa Dha Ni) and Western Staff Notation — so learners across traditions feel at home and can bridge both worlds.</p>
+      <div class="notation-box" style="max-width:700px;margin:32px auto">
+        <h4>Scale of C Major — Dual Notation Example</h4>
+        <div class="notation-row">
+          <div class="notation-col"><h5>Indian Sargam</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Sa'</span></div></div>
+          <div class="notation-col"><h5>Western Staff</h5><div class="notes-strip"><span class="note western">C</span><span class="note western">D</span><span class="note western">E</span><span class="note western">F</span><span class="note western">G</span><span class="note western">A</span><span class="note western">B</span><span class="note western">C'</span></div></div>
+        </div>
+        <div class="staff-line">𝄞 &nbsp; ♩C &nbsp; ♩D &nbsp; ♩E &nbsp; ♩F &nbsp; ♩G &nbsp; ♩A &nbsp; ♩B &nbsp; ♩C'</div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-eyebrow">Why Learn With Us</div>
+    <h2 class="section-title">Teaching That <em>Works</em></h2>
+    <div class="divider"></div>
+    <div class="cards-grid">
+      <div class="card"><div class="card-icon">📖</div><div class="card-title">Published Author</div><p class="card-text">Riddhi's books — including "Flute for Everyone" and the Tagore Songs series — are read in India, USA, Japan, Australia, Canada, UK and more.</p></div>
+      <div class="card"><div class="card-icon">🎵</div><div class="card-title">Dual Notation</div><p class="card-text">All lessons include both Indian Sargam and Western Staff notation — the bridge between two great musical traditions.</p></div>
+      <div class="card"><div class="card-icon">🏛️</div><div class="card-title">Classical Roots</div><p class="card-text">Trained under Guruji Sri D. Madhusudan, with a family musical lineage connecting to Suchitra Mitra and Pt. Ajay Chakraborty.</p></div>
+      <div class="card"><div class="card-icon">🌍</div><div class="card-title">20+ Years Experience</div><p class="card-text">Performed at Durga Puja, Diwali functions, corporate concerts, Varanasi ghats, Minneapolis, Bangalore and more.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- PIANO -->
+<div class="page" id="page-piano">
+  <div class="page-header"><div class="page-header-eyebrow">Keyboard Instruments</div><h1 class="page-header-title">🎹 Piano</h1><p class="page-header-sub">From first notes to classical pieces — in Sargam &amp; Staff notation</p></div>
+  <div class="section">
+    <p class="lead">Piano is one of the most versatile instruments for understanding music theory. Our lessons cover correct posture, hand position, finger numbering, reading both treble and bass clef, and progressing from simple melodies to harmonised pieces.</p>
+    <div class="notation-box"><h4>Piano — C Major Scale (Middle Octave)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam (Indian)</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div></div><div class="notation-col"><h5>Staff Notation (Western)</h5><div class="staff-line">𝄞 &nbsp;♩C4 ♩D4 ♩E4 ♩F4 ♩G4 ♩A4 ♩B4 ♩C5</div></div></div></div>
+    <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:32px 0 16px">Learning Path</h3>
+    <ul class="progress-list">
+      <li><div class="step-num">1</div><div class="step-content"><h4>Hand Position &amp; Finger Numbering</h4><p>Correct posture, curved fingers, thumb as finger 1. Both hands separately.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-content"><h4>Reading the Staff — Treble &amp; Bass Clef</h4><p>Notes on lines and spaces, time signatures (4/4, 3/4), note values (whole, half, quarter).</p></div></li>
+      <li><div class="step-num">3</div><div class="step-content"><h4>Five-Finger Exercises &amp; Scales</h4><p>C Major, G Major, D Major — both Indian (Sa Re Ga Ma Pa…) and Western (C D E F G…).</p></div></li>
+      <li><div class="step-num">4</div><div class="step-content"><h4>Simple Melodies — Both Hands Together</h4><p>Twinkle Twinkle, Ode to Joy, Jingle Bells, Ek Pyaar Ka Nagma Hai.</p></div></li>
+      <li><div class="step-num">5</div><div class="step-content"><h4>Chords &amp; Harmonisation</h4><p>Basic triads: C, F, G, Am. Left-hand accompaniment patterns.</p></div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- GUITAR -->
+<div class="page" id="page-guitar">
+  <div class="page-header"><div class="page-header-eyebrow">Strings</div><h1 class="page-header-title">🎸 Guitar</h1><p class="page-header-sub">Classical, folk, Bollywood &amp; beyond — for all levels</p></div>
+  <div class="section">
+    <p class="lead">Guitar is one of the most popular instruments worldwide. Our curriculum covers acoustic and classical guitar, Indian classical raga adaptation, chord progressions, fingerpicking, and a repertoire spanning Bollywood, folk, and Western genres.</p>
+    <div class="notation-box"><h4>Guitar — E Major Scale (Open Position)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam — Key E</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div></div><div class="notation-col"><h5>Staff — Key E</h5><div class="staff-line">𝄞## ♩E ♩F# ♩G# ♩A ♩B ♩C# ♩D# ♩E'</div></div></div></div>
+    <div class="notation-box" style="border-left-color:var(--teal)"><h4>Beginner Starter — Raga Bhairavi on Guitar</h4><p style="font-size:0.9rem;color:var(--text-mid);margin-bottom:12px">Bhairavi is an ideal starting raga for string players — its semi-tones train finger strength and musical sensitivity.</p><div class="notation-row"><div class="notation-col"><h5>Sargam</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">re</span><span class="note sargam">ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">dha</span><span class="note sargam">ni</span><span class="note sargam">Ṡa</span></div><p style="font-size:0.75rem;color:var(--text-light);margin-top:6px">Lowercase = komal (flat)</p></div><div class="notation-col"><h5>Western Equivalent (Key C)</h5><div class="staff-line">𝄞 ♩C ♩Db ♩Eb ♩F ♩G ♩Ab ♩Bb ♩C'</div></div></div></div>
+    <ul class="progress-list">
+      <li><div class="step-num">1</div><div class="step-content"><h4>Guitar Anatomy &amp; Tuning (EADGBE)</h4><p>Parts of the guitar, standard tuning, using a tuner, left-hand and right-hand technique.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-content"><h4>Open Chords — G, C, D, Em, Am</h4><p>Chord diagrams, strumming patterns, changing between chords cleanly.</p></div></li>
+      <li><div class="step-num">3</div><div class="step-content"><h4>Single String Melodies — Dual Notation</h4><p>Sa Re Ga Ma Pa on each string. Reading staff tabs simultaneously.</p></div></li>
+      <li><div class="step-num">4</div><div class="step-content"><h4>Indian Ragas — Introductory Level</h4><p>Bilawal, Kafi, Bhairavi on acoustic guitar. Ability-based progression.</p></div></li>
+      <li><div class="step-num">5</div><div class="step-content"><h4>Repertoire — Bollywood, Folk &amp; Classical</h4><p>Raghupati Raghav, Country Roads, Ae Mere Humsafar, Vande Mataram.</p></div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- UKULELE -->
+<div class="page" id="page-ukulele">
+  <div class="page-header"><div class="page-header-eyebrow">Strings</div><h1 class="page-header-title">🪕 Ukulele</h1><p class="page-header-sub">The joyful island instrument — easy to start, delightful to play</p></div>
+  <div class="section">
+    <p class="lead">Ukulele's compact size and gentle nylon strings make it ideal for beginners and young learners. Tuned G-C-E-A, it covers a warm range perfect for folk, pop, and Indian melodies alike.</p>
+    <div class="notation-box"><h4>Ukulele — C Major Scale (Standard Tuning G-C-E-A)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div></div><div class="notation-col"><h5>Western (Key C)</h5><div class="staff-line">𝄞 ♩C ♩D ♩E ♩F ♩G ♩A ♩B ♩C'</div></div></div></div>
+    <ul class="progress-list">
+      <li><div class="step-num">1</div><div class="step-content"><h4>Tuning &amp; Holding the Ukulele</h4><p>Standard tuning (GCEA), strumming posture, thumb and fingerpicking basics.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-content"><h4>First Chords — C, Am, F, G7</h4><p>The four-chord universe. Playing simple songs with these four alone.</p></div></li>
+      <li><div class="step-num">3</div><div class="step-content"><h4>Melodies in Sargam &amp; Staff</h4><p>Happy Birthday, Twinkle Twinkle, Saare Jahan Se Achha.</p></div></li>
+      <li><div class="step-num">4</div><div class="step-content"><h4>Fingerpicking Patterns</h4><p>Classical arpeggio patterns and Indian theka-inspired rhythms.</p></div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- MANDOLIN -->
+<div class="page" id="page-mandolin">
+  <div class="page-header"><div class="page-header-eyebrow">Strings</div><h1 class="page-header-title">🎻 Mandolin</h1><p class="page-header-sub">Italian in origin, universal in spirit — in Indian &amp; Western styles</p></div>
+  <div class="section">
+    <p class="lead">Mandolin (tuned G-D-A-E, identical to violin) is a beautiful bridge between Western folk and Indian classical music. Its plucked double-strings create a distinctive tremolo ideal for Ragas, Italian folk, and bluegrass.</p>
+    <div class="notation-box"><h4>Mandolin — D Major Scale (Default Scale)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam — Key D</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div></div><div class="notation-col"><h5>Staff — Key D (2 Sharps)</h5><div class="staff-line">𝄞## ♩D ♩E ♩F# ♩G ♩A ♩B ♩C# ♩D'</div></div></div></div>
+    <p>Students may start with Raga Bhairavi based on capability, then progress to Bhupali, Hamsadhwani, and eventually Yaman. Mandolin is equally suited to Best Compositions series by D. Madhusudan — available as a published book by Riddhi Sanyal.</p>
+    <ul class="progress-list">
+      <li><div class="step-num">1</div><div class="step-content"><h4>Plectrum Technique &amp; Tuning (G-D-A-E)</h4><p>Double-string picking, tremolo basics, left-hand positions.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-content"><h4>Scale Exercises in D Major</h4><p>Single-string and cross-string scales. Dual notation throughout.</p></div></li>
+      <li><div class="step-num">3</div><div class="step-content"><h4>Raga Bhairavi — Beginner Level</h4><p>Aroh (ascending), avaroh (descending), simple bandish.</p></div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- BANJO -->
+<div class="page" id="page-banjo">
+  <div class="page-header"><div class="page-header-eyebrow">Strings</div><h1 class="page-header-title">🪘 Banjo</h1><p class="page-header-sub">Folk, bluegrass and beyond — a uniquely joyful instrument</p></div>
+  <div class="section">
+    <p class="lead">Banjo brings an irresistible energy to folk and country music. Our banjo lessons cover 5-string and tenor banjo, fingerpicking (Scruggs style), frailing/clawhammer, and cross-over to Indian folk tunes.</p>
+    <div class="notation-box"><h4>Banjo — G Major Open Tuning (gDGBD)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam — Key G</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div></div><div class="notation-col"><h5>Staff — Key G (1 Sharp)</h5><div class="staff-line">𝄞# ♩G ♩A ♩B ♩C ♩D ♩E ♩F# ♩G'</div></div></div></div>
+    <ul class="progress-list">
+      <li><div class="step-num">1</div><div class="step-content"><h4>Banjo Types &amp; Open G Tuning</h4><p>5-string vs 4-string banjo, the drone string, getting the characteristic banjo sound.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-content"><h4>Rolls &amp; Right-Hand Patterns</h4><p>Forward roll, backward roll, alternating thumb roll. The foundation of bluegrass banjo.</p></div></li>
+      <li><div class="step-num">3</div><div class="step-content"><h4>Folk Melodies — Dual Notation</h4><p>Cripple Creek, Oh! Susanna, Indian folk tunes adapted to banjo.</p></div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- HARMONICA -->
+<div class="page" id="page-harmonica">
+  <div class="page-header"><div class="page-header-eyebrow">Wind Instrument</div><h1 class="page-header-title">🎵 Harmonica / Mouth Organ</h1><p class="page-header-sub">Chromatic &amp; diatonic — Indian melodies, blues, classical and beyond</p></div>
+  <div class="section">
+    <p class="lead">Riddhi Sanyal has authored "Mouth Organ For Everyone: Learn Chromatic Harmonica." Our lessons cover both diatonic (C harp) and chromatic harmonica, the unique hole-convention, and playing in Indian Sargam as well as Western Staff notation.</p>
+    <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:32px 0 16px">Harmonica Hole Convention (C Diatonic — 10 Hole)</h3>
+    <div class="harp-diagram">
+      <div class="harp-hole"><div class="hole-num">1</div><div class="blow">C</div><div class="draw">D</div></div>
+      <div class="harp-hole"><div class="hole-num">2</div><div class="blow">E</div><div class="draw">G</div></div>
+      <div class="harp-hole"><div class="hole-num">3</div><div class="blow">G</div><div class="draw">B</div></div>
+      <div class="harp-hole"><div class="hole-num">4</div><div class="blow">C</div><div class="draw">D</div></div>
+      <div class="harp-hole"><div class="hole-num">5</div><div class="blow">E</div><div class="draw">F</div></div>
+      <div class="harp-hole"><div class="hole-num">6</div><div class="blow">G</div><div class="draw">A</div></div>
+      <div class="harp-hole"><div class="hole-num">7</div><div class="blow">C</div><div class="draw">B</div></div>
+      <div class="harp-hole"><div class="hole-num">8</div><div class="blow">E</div><div class="draw">D</div></div>
+      <div class="harp-hole"><div class="hole-num">9</div><div class="blow">G</div><div class="draw">F</div></div>
+      <div class="harp-hole"><div class="hole-num">10</div><div class="blow">C</div><div class="draw">A</div></div>
+    </div>
+    <div class="harp-legend"><span><span class="leg-dot" style="background:var(--saffron)"></span> Blow (exhale)</span><span><span class="leg-dot" style="background:var(--teal)"></span> Draw (inhale)</span></div>
+    <div class="notation-box" style="margin-top:28px">
+      <h4>C Major Scale — Hole Notation + Sargam + Staff</h4>
+      <table class="lesson-table" style="margin:12px 0 0">
+        <thead><tr><th>Hole</th><th>Action</th><th>Sargam</th><th>Western</th></tr></thead>
+        <tbody>
+          <tr><td>4 ↑</td><td>Blow</td><td class="sn">Sa</td><td class="wn">C</td></tr>
+          <tr><td>4 ↓</td><td>Draw</td><td class="sn">Re</td><td class="wn">D</td></tr>
+          <tr><td>5 ↑</td><td>Blow</td><td class="sn">Ga</td><td class="wn">E</td></tr>
+          <tr><td>5 ↓</td><td>Draw</td><td class="sn">Ma</td><td class="wn">F</td></tr>
+          <tr><td>6 ↑</td><td>Blow</td><td class="sn">Pa</td><td class="wn">G</td></tr>
+          <tr><td>6 ↓</td><td>Draw</td><td class="sn">Dha</td><td class="wn">A</td></tr>
+          <tr><td>7 ↓</td><td>Draw</td><td class="sn">Ni</td><td class="wn">B</td></tr>
+          <tr><td>7 ↑</td><td>Blow</td><td class="sn">Ṡa</td><td class="wn">C'</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="progress-list">
+      <li><div class="step-num">1</div><div class="step-content"><h4>Mouth Position &amp; Single Notes</h4><p>Pursed lip vs. tongue-block technique, clean single notes.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-content"><h4>Scales &amp; Sargam on Chromatic</h4><p>Playing Sa Re Ga Ma Pa Dha Ni Sa across full range.</p></div></li>
+      <li><div class="step-num">3</div><div class="step-content"><h4>Bending &amp; Vibrato</h4><p>Essential expressive techniques — bend for blue notes and Indian ornaments (gamak, meend).</p></div></li>
+      <li><div class="step-num">4</div><div class="step-content"><h4>Raga Hamsadhwani &amp; Classical Music</h4><p>Playing pentatonic ragas on harmonica — ideal for Indian classical repertoire.</p></div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- MELODICA -->
+<div class="page" id="page-melodica">
+  <div class="page-header"><div class="page-header-eyebrow">Wind + Keys</div><h1 class="page-header-title">🎶 Melodica</h1><p class="page-header-sub">Piano keys you breathe life into — perfect for melody and harmony</p></div>
+  <div class="section">
+    <p class="lead">Melodica combines the visual clarity of piano keys with the expressiveness of a wind instrument. It is an excellent tool for learning staff notation, melody writing, and exploring both Indian and Western musical traditions with immediate feedback.</p>
+    <div class="notation-box"><h4>Melodica — Reading the Keys (C Major)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam Mapping</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div><p style="font-size:0.78rem;color:var(--text-light);margin-top:6px">Komal notes played on black keys</p></div><div class="notation-col"><h5>Staff Notation</h5><div class="staff-line">𝄞 ♩C ♩D ♩E ♩F ♩G ♩A ♩B ♩C'</div></div></div></div>
+    <ul class="progress-list">
+      <li><div class="step-num">1</div><div class="step-content"><h4>Breath Control &amp; Key Layout</h4><p>Steady breath support, identifying white and black keys, octave positions.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-content"><h4>Scales in Sargam and Staff</h4><p>Playing C, G, D major scales with dual-notation reading exercises.</p></div></li>
+      <li><div class="step-num">3</div><div class="step-content"><h4>Simple Songs</h4><p>Melodica is perfectly suited to Bollywood, folk, and classical melodies — versatile and portable.</p></div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- BANSURI -->
+<div class="page" id="page-bansuri">
+  <div class="page-header"><div class="page-header-eyebrow">Indian Flute</div><h1 class="page-header-title">🎋 Bansuri</h1><p class="page-header-sub">The voice of the soul — Indian bamboo flute, classical &amp; contemporary</p></div>
+  <div class="section">
+    <p class="lead">Bansuri — the divine bamboo flute of Lord Krishna — is Riddhi Sanyal's primary instrument. Trained under Guruji Sri D. Madhusudan and the author of "Flute for Everyone," Riddhi brings decades of stage performance experience to every lesson. From first blowing to Raga mastery.</p>
+    <div class="notation-box"><h4>Bansuri — Sa (Root Note) &amp; Scale (Key C Bansuri)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam (Madhya Saptak)</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div><p style="font-size:0.78rem;color:var(--text-light);margin-top:6px">Lower octave: Mandra · Upper: Taar saptak</p></div><div class="notation-col"><h5>Western Staff (Key C)</h5><div class="staff-line">𝄞 ♩C ♩D ♩E ♩F ♩G ♩A ♩B ♩C'</div></div></div></div>
+    <div class="notation-box" style="border-left-color:var(--teal)">
+      <h4>Recommended Raga Progression for Bansuri Beginners</h4>
+      <p style="font-size:0.9rem;color:var(--text-mid);margin-bottom:12px">Start with pentatonic ragas — fewer notes, easier ornamentation, faster reward:</p>
+      <div class="raga-grid" style="margin-top:0">
+        <div class="raga-card"><h4>Raga Hamsadhwani</h4><div class="raga-type">Pentatonic · Kalyan Thaat</div><p style="font-size:0.83rem;color:var(--text-light)">5 notes, bright and devotional. The ideal first raga for Bansuri.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">Ga</span><span class="r-note">Pa</span><span class="r-note">Ni</span></div></div>
+        <div class="raga-card"><h4>Raga Durga</h4><div class="raga-type">Pentatonic · Bilawal Thaat</div><p style="font-size:0.83rem;color:var(--text-light)">Peaceful and serene. Evening raga, easy to ornament on flute.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">Ma</span><span class="r-note">Pa</span><span class="r-note">Dha</span></div></div>
+        <div class="raga-card"><h4>Raga Bhupali</h4><div class="raga-type">Pentatonic · Kalyan Thaat</div><p style="font-size:0.83rem;color:var(--text-light)">Melancholic and majestic. Perfect for developing Bansuri tonal expression.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">Ga</span><span class="r-note">Pa</span><span class="r-note">Dha</span></div></div>
+      </div>
+    </div>
+    <ul class="progress-list">
+      <li><div class="step-num">1</div><div class="step-content"><h4>Holding &amp; First Blowing</h4><p>Embouchure, angle of blowing, getting the first clear Sa. Left-hand top holes.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-content"><h4>Sargam in Three Octaves</h4><p>Mandra, Madhya, Taar saptak. Half-holes for komal notes.</p></div></li>
+      <li><div class="step-num">3</div><div class="step-content"><h4>Alankars &amp; Prelims</h4><p>SR, SG, SR-RG, SRG, SRGM — in both ascending and descending patterns.</p></div></li>
+      <li><div class="step-num">4</div><div class="step-content"><h4>Pentatonic Ragas</h4><p>Hamsadhwani → Durga → Bhupali → Bilaval → Mand .</p></div></li>
+      <li><div class="step-num">5</div><div class="step-content"><h4>Songs — Bollywood, Bhajan, Classical</h4><p>Raghupati Raghav, Ae Mere Watan, Vande Mataram, Raga-based compositions.</p></div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- WESTERN FLUTE -->
+<div class="page" id="page-westernflute">
+  <div class="page-header"><div class="page-header-eyebrow">Western Woodwind</div><h1 class="page-header-title">🎼 Western Flute</h1><p class="page-header-sub">Classical, contemporary and Indian crossover — in staff notation</p></div>
+  <div class="section">
+    <p class="lead">The Western concert flute (Boehm system) is the foundation of orchestral woodwind. Our lessons follow the "Flute for Everyone" curriculum — covering embouchure, key fingering, staff notation, and a rich repertoire from classical to Bollywood crossover.</p>
+    <div class="notation-box"><h4>Western Flute — C Major Scale</h4><div class="notation-row"><div class="notation-col"><h5>Sargam</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div></div><div class="notation-col"><h5>Staff Notation</h5><div class="staff-line">𝄞 ♩C4 ♩D4 ♩E4 ♩F4 ♩G4 ♩A4 ♩B4 ♩C5</div></div></div></div>
+    <ul class="progress-list">
+      <li><div class="step-num">1</div><div class="step-content"><h4>Assembly &amp; Embouchure</h4><p>How to assemble the flute, correct lip position, achieving first clear tones.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-content"><h4>First Notes — B, A, G (right hand)</h4><p>Three-note songs using B-A-G. Reading treble clef staff notation from day one.</p></div></li>
+      <li><div class="step-num">3</div><div class="step-content"><h4>Practice in Major Scales like C, D, E, F, G</h4><p>Both Indian Sargam and Staff. Breathing exercises and long tones for tone quality.</p></div></li>
+      <li><div class="step-num">4</div><div class="step-content"><h4>Repertoire</h4><p>Do-Re-Mi, Jamaican Farewell, We Shall Overcome, Happy Birthday, Auld Lang Syne.</p></div></li>
+      <li><div class="step-num">5</div><div class="step-content"><h4>Crossover to Indian Music</h4><p>Adapting Indian folk and classical melodies to Western flute fingering.</p></div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- VIOLIN -->
+<div class="page" id="page-violin">
+  <div class="page-header"><div class="page-header-eyebrow">Strings — Bowed</div><h1 class="page-header-title">🎻 Violin</h1><p class="page-header-sub">Western classical &amp; Indian style — bow directions, Sargam and Staff</p></div>
+  <div class="section">
+    <div class="instr-tabs">
+      <button class="instr-tab active" onclick="switchTab(this,'violin-western')">Western Style</button>
+      <button class="instr-tab" onclick="switchTab(this,'violin-indian')">Indian Classical Style</button>
+    </div>
+    <div class="instr-tab-panel active" id="tab-violin-western">
+      <p class="lead">Western violin technique focuses on bow arm, left-hand intonation in first position, reading staff notation in the key of D (two sharps), and classical repertoire. Riddhi's book "Violin Notation for Tagore Songs" uses Key D — two sharps.</p>
+      <div class="notation-box"><h4>Violin — D Major Scale (Default Key)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam — Key D</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div></div><div class="notation-col"><h5>Staff — D Major (𝄞##)</h5><div class="staff-line">𝄞## ♩D ↓ ♩E ↓ ♩F# ↑ ♩G ↑ ♩A ↑ ♩B ↑ ♩C# ↑ ♩D' ↑</div><p style="font-size:0.72rem;color:var(--text-light);margin-top:4px">↓ Down bow &nbsp; ↑ Up bow</p></div></div></div>
+      <ul class="progress-list">
+        <li><div class="step-num">1</div><div class="step-content"><h4>Bow Hold &amp; Open Strings</h4><p>Franco-Belgian bow hold, open G-D-A-E strings, long bow strokes.</p></div></li>
+        <li><div class="step-num">2</div><div class="step-content"><h4>First Position in D Major</h4><p>Reading staff notes, bow direction markings, short and long bows.</p></div></li>
+        <li><div class="step-num">3</div><div class="step-content"><h4>Tagore Songs &amp; Classical Repertoire</h4><p>Based on Riddhi's published book — 10 Tagore songs in staff notation, D Major.</p></div></li>
+      </ul>
+    </div>
+    <div class="instr-tab-panel" id="tab-violin-indian">
+      <p class="lead">Indian-style violin playing sits the instrument on the foot and knee, uses a different bow angle, and prioritises meend (glide), gamak (ornament), and raga-based improvisation. We teach both Carnatic and Hindustani approaches.</p>
+      <div class="notation-box"><h4>Indian Violin — Raga Bhairavi (Hindustani)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam Aroh</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">re</span><span class="note sargam">ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">dha</span><span class="note sargam">ni</span><span class="note sargam">Ṡa</span></div></div><div class="notation-col"><h5>Avaroh (Descending)</h5><div class="notes-strip"><span class="note sargam">Ṡa</span><span class="note sargam">ni</span><span class="note sargam">dha</span><span class="note sargam">Pa</span><span class="note sargam">Ma</span><span class="note sargam">ga</span><span class="note sargam">re</span><span class="note sargam">Sa</span></div></div></div></div>
+      <ul class="progress-list">
+        <li><div class="step-num">1</div><div class="step-content"><h4>Indian Seating Position</h4><p>Violin on the chest/foot, bow angle, left-hand sliding technique.</p></div></li>
+        <li><div class="step-num">2</div><div class="step-content"><h4>Meend &amp; Gamak</h4><p>The signature ornaments of Indian violin — gliding between notes, mordents.</p></div></li>
+        <li><div class="step-num">3</div><div class="step-content"><h4>Raga Bhairavi — Entry Point</h4><p>Full Aroh-Avaroh, simple alap, and bandish in Teentaal.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- RAGAS -->
+<div class="page" id="page-ragas">
+  <div class="page-header"><div class="page-header-eyebrow">Classical Music</div><h1 class="page-header-title">Indian Classical <em>Ragas</em></h1><p class="page-header-sub">Classified by instrument suitability — from pentatonic beginnings to complex structures</p></div>
+  <div class="section">
+    <p class="lead">We have classified ragas for various instruments according to their suitability for that instrument's range, technique, and the student's progression level. The goal is musical joy at every step — not just theoretical knowledge.</p>
+    <div style="background:var(--saffron-pale);border:1px solid var(--saffron);border-radius:10px;padding:20px 24px;margin:28px 0">
+      <p style="font-size:0.92rem;color:var(--text);margin:0;line-height:1.8"><strong>Teaching Philosophy:</strong> Bansuri (Flute) students begin with pentatonic ragas — Hamsadhwani, Durga, Bhupali — as fewer notes allow focus on tone and ornament. String players (Guitar, Mandolin, Violin) may begin with Bhairavi, which trains all 7 komal/shuddha positions critical for fretted and bowed technique. Ultimately, progression is guided by individual capability and musical intuition.</p>
+    </div>
+    <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin:40px 0 20px">Ragas for Bansuri &amp; Western Flute</h3>
+    <div class="raga-grid">
+      <div class="raga-card"><h4>Raga Hamsadhwani</h4><div class="raga-type">Pentatonic · Kalyan Thaat · All Times</div><p style="font-size:0.83rem;color:var(--text-light)">5 notes. Bright, devotional. Perfect first raga for flute students.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">Ga</span><span class="r-note">Pa</span><span class="r-note">Ni</span></div></div>
+      <div class="raga-card"><h4>Raga Durga</h4><div class="raga-type">Pentatonic · Bilawal Thaat · Evening</div><p style="font-size:0.83rem;color:var(--text-light)">Serene and peaceful. No semitones — ideal for learning pure tonal control on flute.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">Ma</span><span class="r-note">Pa</span><span class="r-note">Dha</span></div></div>
+      <div class="raga-card"><h4>Raga Bhupali</h4><div class="raga-type">Pentatonic · Kalyan Thaat · Twilight</div><p style="font-size:0.83rem;color:var(--text-light)">Melancholic and grand. Teaches upper-octave (Taar saptak) stability on Bansuri.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">Ga</span><span class="r-note">Pa</span><span class="r-note">Dha</span></div></div>
+      <div class="raga-card"><h4>Raga Bilaval</h4><div class="raga-type">Hexatonic · Bilawal Thaat · Morning</div><p style="font-size:0.83rem;color:var(--text-light)">Equivalent of C Major. Morning raga — a natural next step after pentatonic ragas.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">Ga</span><span class="r-note">Ma</span><span class="r-note">Pa</span><span class="r-note">Dha</span></div></div>
+      <div class="raga-card"><h4>Raga Mand</h4><div class="raga-type">Hexatonic · Bilawal Thaat · All Times</div><p style="font-size:0.83rem;color:var(--text-light)">Gentle and folk-flavoured. Easy to learn, beloved across Rajasthan and Bengal.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">Ga</span><span class="r-note">Pa</span><span class="r-note">Dha</span><span class="r-note">Ni</span></div></div>
+      <div class="raga-card"><h4>Raga Yaman</h4><div class="raga-type">Heptatonic · Kalyan Thaat · Evening</div><p style="font-size:0.83rem;color:var(--text-light)">Tivra Ma (sharp F). One of the most beautiful complete ragas — the next milestone.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">Ga</span><span class="r-note">Ma#</span><span class="r-note">Pa</span><span class="r-note">Dha</span><span class="r-note">Ni</span></div></div>
+    </div>
+    <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin:48px 0 20px">Ragas for String Players (Guitar, Mandolin, Violin)</h3>
+    <div class="raga-grid">
+      <div class="raga-card"><h4>Raga Bhairavi</h4><div class="raga-type">Heptatonic · All Komal · Morning</div><p style="font-size:0.83rem;color:var(--text-light)">Four komal (flat) notes. Trains all left-hand positions essential for fretted/bowed strings. Recommended entry raga for string students.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">re</span><span class="r-note">ga</span><span class="r-note">Ma</span><span class="r-note">Pa</span><span class="r-note">dha</span><span class="r-note">ni</span></div></div>
+      <div class="raga-card"><h4>Raga Kafi</h4><div class="raga-type">Heptatonic · Kafi Thaat · Night</div><p style="font-size:0.83rem;color:var(--text-light)">Re and Ni both komal. Used extensively in thumri and folk — ideal for guitar/mandolin.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">ga</span><span class="r-note">Ma</span><span class="r-note">Pa</span><span class="r-note">Dha</span><span class="r-note">ni</span></div></div>
+      <div class="raga-card"><h4>Raga Desh</h4><div class="raga-type">Heptatonic · Khamaj Thaat · Evening</div><p style="font-size:0.83rem;color:var(--text-light)">Deeply Indian, emotionally rich. "Vande Mataram" is based on Desh — immediate recognition.</p><div class="raga-notes"><span class="r-note">Sa</span><span class="r-note">Re</span><span class="r-note">Ga</span><span class="r-note">Ma</span><span class="r-note">Pa</span><span class="r-note">Dha</span><span class="r-note">ni</span></div></div>
+    </div>
+    <div class="notation-box" style="margin-top:40px">
+      <h4>How to Read the Sargam Notation</h4>
+      <div class="notation-row">
+        <div class="notation-col"><h5>Capital = Shuddha (Natural)</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span></div></div>
+        <div class="notation-col"><h5>Lowercase = Komal (Flat)</h5><div class="notes-strip"><span class="note" style="background:#888">Sa</span><span class="note sargam" style="background:#c44">re</span><span class="note sargam" style="background:#c44">ga</span><span class="note sargam">Ma</span><span class="note" style="background:#888">Pa</span><span class="note sargam" style="background:#c44">dha</span><span class="note sargam" style="background:#c44">ni</span></div><p style="font-size:0.72rem;color:var(--text-light);margin-top:6px">Sa and Pa are always natural; Ma can be tivra (Ma#)</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BEGINNER LESSONS -->
+<div class="page" id="page-beginners">
+  <div class="page-header"><div class="page-header-eyebrow">Foundations</div><h1 class="page-header-title">Beginner <em>Chapter</em> — Prelims</h1><p class="page-header-sub">SARGAMs, note progressions, and the building blocks of melody</p></div>
+  <div class="section">
+    <p class="lead">All musical journeys begin the same way — with individual notes, then two notes, then three. Our prelims follow a scientifically ordered progression that builds finger muscle memory, ear training, and rhythmic awareness simultaneously.</p>
+    <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:32px 0 16px">1. The Sargam — Seven Sacred Notes</h3>
+    <div class="notation-box"><h4>Full Saptak — Indian &amp; Western</h4>
+      <table class="lesson-table"><thead><tr><th>Sargam</th><th>Full Name</th><th>Western</th><th>Degree</th></tr></thead>
+      <tbody>
+        <tr><td class="sn">Sa</td><td>Shadja</td><td class="wn">C (Do)</td><td>1st — Root (Tonic)</td></tr>
+        <tr><td class="sn">Re</td><td>Rishabh</td><td class="wn">D (Re)</td><td>2nd — Major 2nd</td></tr>
+        <tr><td class="sn">Ga</td><td>Gandhar</td><td class="wn">E (Mi)</td><td>3rd — Major 3rd</td></tr>
+        <tr><td class="sn">Ma</td><td>Madhyam</td><td class="wn">F (Fa)</td><td>4th — Perfect 4th</td></tr>
+        <tr><td class="sn">Pa</td><td>Pancham</td><td class="wn">G (Sol)</td><td>5th — Perfect 5th</td></tr>
+        <tr><td class="sn">Dha</td><td>Dhaivat</td><td class="wn">A (La)</td><td>6th — Major 6th</td></tr>
+        <tr><td class="sn">Ni</td><td>Nishad</td><td class="wn">B (Si)</td><td>7th — Major 7th</td></tr>
+        <tr><td class="sn">Ṡa</td><td>Shadja (Taar)</td><td class="wn">C' (Do')</td><td>8th — Octave</td></tr>
+      </tbody></table>
+    </div>
+    <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:40px 0 16px">2. Two-Note Progressions (Adjacent)</h3>
+    <table class="lesson-table"><thead><tr><th>Exercise</th><th>Sargam</th><th>Western</th><th>Focus</th></tr></thead>
+    <tbody>
+      <tr><td>SR</td><td class="sn">Sa-Re</td><td class="wn">C-D</td><td>First interval, smooth legato</td></tr>
+      <tr><td>RG</td><td class="sn">Re-Ga</td><td class="wn">D-E</td><td>Half-step awareness on flute/strings</td></tr>
+      <tr><td>GM</td><td class="sn">Ga-Ma</td><td class="wn">E-F</td><td>Smallest interval — semitone precision</td></tr>
+      <tr><td>MP</td><td class="sn">Ma-Pa</td><td class="wn">F-G</td><td>Whole tone — the "bridge" interval</td></tr>
+      <tr><td>PD</td><td class="sn">Pa-Dha</td><td class="wn">G-A</td><td>Upper register entry</td></tr>
+      <tr><td>DN</td><td class="sn">Dha-Ni</td><td class="wn">A-B</td><td>Leading-tone tension</td></tr>
+      <tr><td>NS</td><td class="sn">Ni-Ṡa</td><td class="wn">B-C'</td><td>Octave resolution</td></tr>
+    </tbody></table>
+    <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:40px 0 16px">3. Two-Note Progressions (Skipping)</h3>
+    <table class="lesson-table"><thead><tr><th>Exercise</th><th>Sargam</th><th>Western</th><th>Interval</th></tr></thead>
+    <tbody>
+      <tr><td>SG</td><td class="sn">Sa-Ga</td><td class="wn">C-E</td><td>Major 3rd — bright, open</td></tr>
+      <tr><td>Rm</td><td class="sn">Re-Ma</td><td class="wn">D-F</td><td>Minor 3rd — slightly dark</td></tr>
+      <tr><td>GP</td><td class="sn">Ga-Pa</td><td class="wn">E-G</td><td>Minor 3rd — core of tonic chord</td></tr>
+      <tr><td>MD</td><td class="sn">Ma-Dha</td><td class="wn">F-A</td><td>Major 3rd</td></tr>
+      <tr><td>PN</td><td class="sn">Pa-Ni</td><td class="wn">G-B</td><td>Major 3rd</td></tr>
+    </tbody></table>
+    <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:40px 0 16px">4. Three-Note Progressions</h3>
+    <table class="lesson-table"><thead><tr><th>Sargam</th><th>Western</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="sn">S-R-G</td><td class="wn">C-D-E</td><td>Ascending trichord — the foundation</td></tr>
+      <tr><td class="sn">R-G-M</td><td class="wn">D-E-F</td><td>Crossing the semitone E→F</td></tr>
+      <tr><td class="sn">G-M-P</td><td class="wn">E-F-G</td><td>Middle of the scale, even spacing</td></tr>
+      <tr><td class="sn">M-P-D</td><td class="wn">F-G-A</td><td>Upper half begins</td></tr>
+      <tr><td class="sn">P-D-N</td><td class="wn">G-A-B</td><td>Three whole tones in a row</td></tr>
+      <tr><td class="sn">G-R-S</td><td class="wn">E-D-C</td><td>Descending — equal attention both directions</td></tr>
+    </tbody></table>
+    <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:40px 0 16px">5. Four-Note Progressions (Tetrachords)</h3>
+    <table class="lesson-table"><thead><tr><th>Sargam</th><th>Western</th><th>Shape</th></tr></thead>
+    <tbody>
+      <tr><td class="sn">S-R-G-M</td><td class="wn">C-D-E-F</td><td>Lower tetrachord of C major scale</td></tr>
+      <tr><td class="sn">R-G-M-P</td><td class="wn">D-E-F-G</td><td>Overlapping tetrachord — builds flow</td></tr>
+      <tr><td class="sn">G-M-P-D</td><td class="wn">E-F-G-A</td><td>Middle four — even rhythm practice</td></tr>
+      <tr><td class="sn">M-P-D-N</td><td class="wn">F-G-A-B</td><td>Upper tetrachord</td></tr>
+      <tr><td class="sn">P-D-N-Ṡ</td><td class="wn">G-A-B-C'</td><td>Reaching for the octave</td></tr>
+    </tbody></table>
+    <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:40px 0 16px">6. Combined Tetrachord Patterns (Alankars)</h3>
+    <table class="lesson-table"><thead><tr><th>Sargam</th><th>Western</th></tr></thead>
+    <tbody>
+      <tr><td class="sn">S-G-R-S · N-S-R-S</td><td class="wn">C-E-D-C · B-C-D-C</td></tr>
+      <tr><td class="sn">R-M-G-R · S-R-G-R</td><td class="wn">D-F-E-D · C-D-E-D</td></tr>
+      <tr><td class="sn">G-P-M-G · R-G-M-G</td><td class="wn">E-G-F-E · D-E-F-E</td></tr>
+    </tbody></table>
+    <div class="notation-box"><h4>Staff Notation — Alankar Pattern 3 (SRGm · RGmP)</h4><div class="staff-line">𝄞 &nbsp;♩C ♩D ♩E ♩F | ♩D ♩E ♩F ♩G | ♩E ♩F ♩G ♩A | ♩F ♩G ♩A ♩B |</div></div>
+  </div>
+</div>
+
+<!-- INDIAN SONGS -->
+<div class="page" id="page-indian-songs">
+  <div class="page-header"><div class="page-header-eyebrow">Repertoire</div><h1 class="page-header-title">Indian <em>Songs</em></h1><p class="page-header-sub">Bollywood, folk, semi-classical, bhajan, patriotic — in Sargam &amp; Staff</p></div>
+  <div class="section">
+    <p class="lead">Indian music offers a vast, emotionally rich repertoire spanning centuries. Our lessons cover songs in all major genres, always presented in both Indian Sargam notation and Western Staff notation so learners from any background can engage.</p>
+    <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:32px 0 16px">Genres We Cover</h3>
+    <div class="genre-list">
+      <span class="genre-chip highlight">Bollywood — Golden Era</span><span class="genre-chip">Bollywood — Contemporary</span><span class="genre-chip highlight">Rabindra Sangeet</span><span class="genre-chip">Folk — Bengali</span><span class="genre-chip">Folk — Rajasthani</span><span class="genre-chip">Folk — Punjabi</span><span class="genre-chip highlight">Bhajan &amp; Devotional</span><span class="genre-chip">Semi-Classical (Thumri)</span><span class="genre-chip highlight">Patriotic</span><span class="genre-chip">North-East Indian</span><span class="genre-chip">Baul &amp; Bhatiali</span>
+    </div>
+    <div class="notation-box"><h4>Sample — "Raghupati Raghav Raja Ram" (Bhajan / Patriotic)</h4>
+      <div class="notation-row">
+        <div class="notation-col"><h5>Sargam (Key C)</h5><div class="staff-line" style="font-size:0.78rem;white-space:normal;line-height:2">Ra-ghu-pa-ti: <strong>Pa Ni Ṡa Ṡa</strong><br>Ra-gha-va: <strong>Ni Ṡa Ṙe</strong><br>Ra-ja Ram: <strong>Ṡa Ni Pa</strong><br>Pa-ti-ta Pa-va-na: <strong>Ma Pa Ni Ṡa Ṡa Ni</strong></div></div>
+        <div class="notation-col"><h5>Staff Notation (Key C)</h5><div class="staff-line" style="font-size:0.78rem;white-space:normal;line-height:2">Ra-ghu-pa-ti: <strong>G A C' C'</strong><br>Ra-gha-va: <strong>A C' D'</strong><br>Ra-ja Ram: <strong>C' A G</strong><br>Pa-ti-ta Pa-va-na: <strong>F G A C' C' A</strong></div></div>
+      </div>
+    </div>
+    <table class="lesson-table"><thead><tr><th>Genre</th><th>Song Title</th><th>Level</th><th>Key</th></tr></thead>
+    <tbody>
+      <tr><td>Patriotic</td><td>Vande Mataram</td><td>Intermediate</td><td>D</td></tr>
+      <tr><td>Patriotic</td><td>Ae Mere Watan Ke Logo</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Patriotic</td><td>Saare Jahan Se Achha</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Bhajan</td><td>Raghupati Raghav Raja Ram</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Bhajan</td><td>Om Jai Jagadish Hare</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Bollywood</td><td>Ek Pyaar Ka Nagma Hai</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Bollywood</td><td>Lag Ja Gale</td><td>Intermediate</td><td>D</td></tr>
+      <tr><td>Rabindra Sangeet</td><td>Alo Amar Alo Ogo</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Rabindra Sangeet</td><td>Amra Sobai Raja</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Folk — Bengali</td><td>Bhatiali — Majhi Re</td><td>Intermediate</td><td>D</td></tr>
+      <tr><td>Semi-Classical</td><td>Yaad Piya Ki Aaye (Thumri)</td><td>Advanced</td><td>D</td></tr>
+    </tbody></table>
+    <p style="margin-top:16px">Full sheet music and audio reference for all songs are available in Riddhi Sanyal's published books — see <a href="#" onclick="showPage('books')" style="color:var(--saffron)">Published Books</a>.</p>
+  </div>
+</div>
+
+<!-- WESTERN SONGS -->
+<div class="page" id="page-western-songs">
+  <div class="page-header"><div class="page-header-eyebrow">Repertoire</div><h1 class="page-header-title">Western <em>Songs</em></h1><p class="page-header-sub">Classical, waltz, country, folk, jazz, soft rock and more</p></div>
+  <div class="section">
+    <p class="lead">Western music spans centuries and styles. Our curriculum draws from classical masterworks, timeless folk songs, jazz standards, and contemporary pieces — all notated in Staff Music, with Sargam equivalents provided so Indian students can connect the dots.</p>
+    <div class="genre-list">
+      <span class="genre-chip highlight">Classical</span><span class="genre-chip">Waltz</span><span class="genre-chip highlight">Country</span><span class="genre-chip">Folk</span><span class="genre-chip highlight">Jazz</span><span class="genre-chip">Soft Rock</span><span class="genre-chip">Romantic</span><span class="genre-chip">Christmas</span><span class="genre-chip">Marching / Patriotic</span><span class="genre-chip">Children's Music</span><span class="genre-chip">Indi-Pop</span>
+    </div>
+    <div class="notation-box"><h4>Sample — "Ode to Joy" (Beethoven, Classical — Key C)</h4>
+      <div class="notation-row">
+        <div class="notation-col"><h5>Sargam</h5><div class="staff-line" style="font-size:0.78rem;white-space:normal;line-height:2"><strong>Ga Ga Ma Pa · Pa Ma Ga Re</strong><br><strong>Sa Sa Re Ga · Ga Re Re</strong><br><strong>Ga Ga Ma Pa · Pa Ma Ga Re</strong><br><strong>Sa Sa Re Ga · Re Sa Sa</strong></div></div>
+        <div class="notation-col"><h5>Staff Notation</h5><div class="staff-line" style="font-size:0.78rem;white-space:normal;line-height:2">𝄞 <strong>E E F G · G F E D</strong><br><strong>C C D E · E D D</strong><br><strong>E E F G · G F E D</strong><br><strong>C C D E · D C C</strong></div></div>
+      </div>
+    </div>
+    <table class="lesson-table"><thead><tr><th>Genre</th><th>Song / Piece</th><th>Level</th><th>Key</th></tr></thead>
+    <tbody>
+      <tr><td>Classical</td><td>Ode to Joy (Beethoven)</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Classical</td><td>Minuet in G (Bach)</td><td>Intermediate</td><td>G</td></tr>
+      <tr><td>Folk</td><td>Twinkle Twinkle Little Star</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Folk</td><td>Take Me Home, Country Roads</td><td>Beginner</td><td>G</td></tr>
+      <tr><td>Folk</td><td>We Shall Overcome</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Folk</td><td>Jamaican Farewell</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Waltz</td><td>The Beautiful Blue Danube</td><td>Intermediate</td><td>D</td></tr>
+      <tr><td>Waltz</td><td>Amazing Grace (Waltz rhythm)</td><td>Beginner</td><td>G</td></tr>
+      <tr><td>Country</td><td>Oh! Susanna</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Romantic</td><td>My Heart Will Go On</td><td>Intermediate</td><td>F</td></tr>
+      <tr><td>Jazz</td><td>When the Saints Go Marching In</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Soft Rock</td><td>Auld Lang Syne</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Children's</td><td>Do-Re-Mi (Sound of Music)</td><td>Beginner</td><td>C</td></tr>
+      <tr><td>Christmas</td><td>Jingle Bells</td><td>Beginner</td><td>G</td></tr>
+      <tr><td>Marching</td><td>Colonel Bogey March</td><td>Intermediate</td><td>C</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- BOOKS -->
+<div class="page" id="page-books">
+  <div class="page-header"><div class="page-header-eyebrow">Published Works</div><h1 class="page-header-title">📚 Books by <em>Riddhi Sanyal</em></h1><p class="page-header-sub">Available worldwide on Amazon — read, listen, play &amp; learn</p></div>
+  <div class="section">
+    <p class="lead">Riddhi Sanyal's books have been read by students in India, USA, Japan, Australia, Canada, UK, France and beyond. Each book provides dual notation — Indian Sargam and Western Staff — along with QR codes / embedded audio files for listening and reference.</p>
+    <div class="books-grid">
+      <div class="book-card"><div class="book-spine"></div><div class="book-cover-area">🎋</div><div class="book-info"><span class="book-badge top">Most Popular</span><div class="book-title">Flute for Everyone — Learn Flute in 60 Days</div><div class="book-desc">Beginner to advanced Bansuri/Flute course. Dual Indian &amp; Staff notation. Prelims, songs, ragas. Embedded audio in Kindle.</div><a href="https://www.amazon.in/FLUTE-EVERYONE-Learn-Flute-COURSE/dp/B07Y8DL1K3" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,var(--teal),var(--teal-light))"></div><div class="book-cover-area">🎵</div><div class="book-info"><span class="book-badge top">Bestseller</span><div class="book-title">Mouth Organ for Everyone — Chromatic Harmonica</div><div class="book-desc">Beginners to advanced level chromatic harmonica. Hole convention, Indian Sargam, Staff notation, songs, ragas.</div><a href="https://www.amazon.in/Mouth-Organ-Everyone-Chromatic-Harmonica/dp/B0BRDG5KRN" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#C44,#E88)"></div><div class="book-cover-area">🎶</div><div class="book-info"><span class="book-badge top">Popular</span><div class="book-title">Tagore Songs Collection in Sheet Music — Vol. 1</div><div class="book-desc">10 Rabindra Sangeet in Staff Notation (Scale C). For vocal, piano, guitar, flute, ukulele, harmonica. With audio links.</div><a href="https://www.amazon.in/dp/B086J8MLJ5" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#5A3E8A,#8A6EC4)"></div><div class="book-cover-area">🎶</div><div class="book-info"><span class="book-badge new">New</span><div class="book-title">Tagore Songs Collection in Sheet Music — Vol. 2</div><div class="book-desc">10 more Rabindra Sangeet in Staff Notation. Includes Jodi Tor Daak, Ekla Chalo Re, Tomar Khola Hawa and more.</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#1A6B60,#3AB5A5)"></div><div class="book-cover-area">🎻</div><div class="book-info"><span class="book-badge top">Specialist</span><div class="book-title">Violin Notation for Tagore Songs</div><div class="book-desc">Tagore Songs in Staff Notation (Key D — Two Sharps) for Violin, Mandolin. With bow direction markings.</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#8A5A10,#C99030)"></div><div class="book-cover-area">🎼</div><div class="book-info"><span class="book-badge top">Multi-Instrument</span><div class="book-title">Best Compositions of D. Madhusudan — Vol. 1</div><div class="book-desc">25 musical lessons in Staff Notes &amp; Indian Notes for Piano, Guitar, Violin, Flute, Banjo, Saxophone, Harmonica.</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#6A3060,#B060A0)"></div><div class="book-cover-area">🎼</div><div class="book-info"><span class="book-badge new">New</span><div class="book-title">Best Compositions of D. Madhusudan — Vol. 2</div><div class="book-desc">25 new lessons in Key D &amp; Indian Notes. For Violin, Mandolin, Piano, Guitar, Flute, Banjo, Saxophone, Harmonica, Ukulele.</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="book-link">View on Amazon →</a></div></div>
+      <div class="book-card"><div class="book-spine" style="background:linear-gradient(90deg,#2A4A8A,#5080C0)"></div><div class="book-cover-area">📖</div><div class="book-info"><span class="book-badge top">Study Guide</span><div class="book-title">Study Guide on Tagore Songs in Sheet Music</div><div class="book-desc">Companion guide with staff notation at Scale C, musical analysis, and learner guidance for all instruments.</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="book-link">View on Amazon →</a></div></div>
+    </div>
+    <div style="text-align:center;margin-top:40px"><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" class="btn-primary">View All Books on Amazon →</a></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div class="page-header"><div class="page-header-eyebrow">The Teacher</div><h1 class="page-header-title">About <em>Riddhi Sanyal</em></h1><p class="page-header-sub">Author · Musician · Educator · Over 20 years in music</p></div>
+  <div class="section">
+    <div class="about-grid">
+      <div>
+        <div class="about-portrait">
+          <div class="portrait-initial">RS</div>
+          <div class="portrait-name">Riddhi Sanyal</div>
+          <div class="portrait-role">Musician &amp; Author</div>
+          <div class="portrait-stats">
+            <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years in music</div></div>
+            <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Published books</div></div>
+            <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Countries reached</div></div>
+            <div class="stat"><div class="stat-num">2</div><div class="stat-label">Primary instruments</div></div>
+          </div>
+        </div>
+        <div style="margin-top:20px;padding:20px;background:#fff;border:1px solid var(--border);border-radius:10px">
+          <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);margin-bottom:10px">Connect</div>
+          <div style="font-size:0.85rem;color:var(--text-mid);margin-bottom:8px">📧 <a href="mailto:Riddhi.Sanyal@gmail.com" style="color:var(--saffron)">Riddhi.Sanyal@gmail.com</a></div>
+          <div style="font-size:0.85rem;color:var(--text-mid);margin-bottom:8px">📺 <a href="https://www.youtube.com/c/musicaljourneys" target="_blank" style="color:var(--saffron)">YouTube: musicaljourneys</a></div>
+          <div style="font-size:0.85rem;color:var(--text-mid)">📚 <a href="https://www.amazon.com/author/riddhi" target="_blank" style="color:var(--saffron)">Amazon Author Page</a></div>
+          <div style="font-size:0.85rem;color:var(--text-mid);margin-top:8px">💻 <a href="https://github.com/riddhisan" target="_blank" style="color:var(--saffron)">github.com/riddhisan</a></div>
+        </div>
+      </div>
+      <div>
+        <p>Riddhi Sanyal has been in the music industry for more than 20 years. His musical journey started from childhood, immersed in a deeply musical home environment. His mother, Smt. Gargi Sanyal, is a well-known Rabindra Sangeet singer who learnt from the legendary Suchitra Mitra at Rabithirtha. His grandmother, Smt. Tripti Saraswati, was a classical singer who trained under Pt. Jamini Ganguly and Sri Manabendra Mukherjee. His sister, Smt. Madhupa Sanyal, is a vocalist trained under Pt. Ajay Chakraborty at Shrutinandan.</p>
+        <p>Musical gatherings — "Ganer Ashor" — were common at home, with evenings dissolving into late nights of music. During childhood, Riddhi learnt Tabla from the noted teacher Sri Abhijit Barhouri at Malda, while legendary singer and Harmonium maestro Sri Alok Bhadhury gave lessons at home.</p>
+        <p>During college, Riddhi began learning Flute from his friend Sri Sajal Banerjee, starting with a metallic flute held in the Shehnai style. He later learnt the Bamboo Bansuri by self-practice and began performing at college functions. During his stay in the USA (2007–2010) at Minneapolis, he deepened his knowledge of sheet music at various libraries and performed Rabindra Sangeet and Bhatiali music at the Durga Puja festival organised by BAM — where his large F# Bansuri was seen and heard by an American audience for the first time.</p>
+        <p>In 2010, Riddhi found his musical Guruji — Sri D. Madhusudan — at Jadavpur. Since then, Guruji's guidance has shaped his classical practice. He has performed Indian classical music, Raga, Rabindra Sangeet, Bollywood Golden Era songs, and patriotic music at Durga Puja, Diwali, Kali Puja (Kolkata, Uttarpara, Malda), at Dasaswamedh Ghat (Varanasi), and at corporate functions in Bangalore, Mangalore and more.</p>
+        <blockquote style="border-left:3px solid var(--saffron);padding:12px 20px;margin:24px 0;font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--text-mid);background:var(--cream2);border-radius:0 8px 8px 0">"It's rare to have Indian Bansuri at a US function — it was awesome to listen to the Indian and North Eastern tunes." — Feedback from the Minneapolis Durga Puja, 2008</blockquote>
+        <p>By profession, Riddhi is a Senior Architect at one of the world's largest software companies — 17+ years in the IT industry — yet he has never stopped practising or teaching music. He has played Raga Hamsadhwani on Bansuri to the CIO and Board of Directors of a major travel company, leaving them speechless. Riddhi loves writing music lessons for students, having designed courses from Elementary to Level 5 for Musical Academy Beniyasahakala.</p>
+        <p>His books — including "Flute for Everyone" and the Tagore Songs Sheet Music series — have been received with great enthusiasm across India, USA, Japan, Australia, Canada, UK and France.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="page-header"><div class="page-header-eyebrow">Reach Out</div><h1 class="page-header-title">Contact <em>Riddhi Sanyal</em></h1><p class="page-header-sub">For lessons, workshops, book enquiries, or just a musical conversation</p></div>
+  <div class="section-sm">
+    <p class="lead text-center lead-center">Whether you are a complete beginner, a teacher looking for resources, or someone who wants to deepen their musical journey — feel free to reach out.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin:40px 0">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;text-align:center"><div style="font-size:1.6rem;margin-bottom:10px">📧</div><div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);margin-bottom:6px">Email</div><a href="mailto:Riddhi.Sanyal@gmail.com" style="color:var(--saffron);font-size:0.9rem;text-decoration:none">Riddhi.Sanyal@gmail.com</a></div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;text-align:center"><div style="font-size:1.6rem;margin-bottom:10px">📺</div><div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);margin-bottom:6px">YouTube</div><a href="https://www.youtube.com/c/musicaljourneys" target="_blank" style="color:var(--saffron);font-size:0.9rem;text-decoration:none">Musical Journeys</a></div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;text-align:center"><div style="font-size:1.6rem;margin-bottom:10px">📚</div><div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);margin-bottom:6px">Books</div><a href="https://www.amazon.in/stores/author/B07ZBHPGZT/allbooks" target="_blank" style="color:var(--saffron);font-size:0.9rem;text-decoration:none">Amazon Author Page</a></div>
+    </div>
+    <div class="contact-form">
+      <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:28px;text-align:center">Send a Message</h3>
+      <div id="formSuccess" class="form-success">✓ Thank you for your message! Riddhi will get back to you soon.</div>
+      <div class="form-group"><label>Your Name</label><input type="text" id="fname" placeholder="Your full name"></div>
+      <div class="form-group"><label>Email Address</label><input type="email" id="femail" placeholder="your@email.com"></div>
+      <div class="form-group"><label>I am interested in</label>
+        <select id="finterest">
+          <option value="">Select an instrument / topic</option>
+          <option>Bansuri (Bamboo Flute)</option><option>Western Flute</option><option>Harmonica / Mouth Organ</option><option>Piano / Keyboard</option><option>Guitar</option><option>Ukulele</option><option>Violin</option><option>Mandolin</option><option>Banjo</option><option>Melodica</option><option>Indian Classical Ragas</option><option>Book / Publication Enquiry</option><option>Workshop / Event</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea id="fmessage" placeholder="Tell Riddhi about your musical background, goals, or any questions you have..."></textarea></div>
+      <button class="btn-primary" style="width:100%" onclick="submitForm()">Send Message</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Musical Journeys</div>
+      <p style="font-size:0.82rem;line-height:1.7;max-width:280px">Music education by Riddhi Sanyal — bridging Indian Sargam and Western Staff notation for learners worldwide.</p>
+      <p style="margin-top:12px;font-size:0.8rem"><a href="mailto:Riddhi.Sanyal@gmail.com" style="color:var(--saffron-light);text-decoration:none">Riddhi.Sanyal@gmail.com</a></p>
+    </div>
+    <div>
+      <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px">Instruments</div>
+      <ul class="footer-links">
+        <li><a href="#" onclick="showPage('piano')">Piano</a></li>
+        <li><a href="#" onclick="showPage('guitar')">Guitar</a></li>
+        <li><a href="#" onclick="showPage('harmonica')">Harmonica</a></li>
+        <li><a href="#" onclick="showPage('bansuri')">Bansuri</a></li>
+        <li><a href="#" onclick="showPage('violin')">Violin</a></li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:14px">Learn</div>
+      <ul class="footer-links">
+        <li><a href="#" onclick="showPage('beginners')">Beginner Lessons</a></li>
+        <li><a href="#" onclick="showPage('ragas')">Indian Ragas</a></li>
+        <li><a href="#" onclick="showPage('indian-songs')">Indian Songs</a></li>
+        <li><a href="#" onclick="showPage('western-songs')">Western Songs</a></li>
+        <li><a href="#" onclick="showPage('books')">Published Books</a></li>
+        <li><a href="#" onclick="showPage('about')">About</a></li>
+        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">
+    <span>© 2025 Riddhi Sanyal · Musical Journeys</span>
+    <span>Sa · Re · Ga · Ma · Pa · Dha · Ni · Sa</span>
+  </div>
+</footer>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const pg = document.getElementById('page-' + id);
+  if (pg) { pg.classList.add('active'); window.scrollTo(0,0); }
+  closeMenu();
+  return false;
+}
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+function switchTab(btn, panelId) {
+  const container = btn.closest('.section') || btn.parentElement.parentElement;
+  container.querySelectorAll('.instr-tab').forEach(t => t.classList.remove('active'));
+  container.querySelectorAll('.instr-tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel = document.getElementById('tab-' + panelId);
+  if (panel) panel.classList.add('active');
+}
+function submitForm() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const msg = document.getElementById('fmessage').value.trim();
+  if (!name || !email) { alert('Please fill in your name and email.'); return; }
+  const subject = encodeURIComponent('Musical Journeys Enquiry from ' + name);
+  const interest = document.getElementById('finterest').value;
+  const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nInterest: ' + interest + '\n\nMessage:\n' + msg);
+  window.location.href = 'mailto:Riddhi.Sanyal@gmail.com?subject=' + subject + '&body=' + body;
+  document.getElementById('formSuccess').style.display = 'block';
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-links > li')) {
+    document.querySelectorAll('.dropdown').forEach(d => d.style.display = '');
+  }
+});
+</script>
+</body>
+</html>
