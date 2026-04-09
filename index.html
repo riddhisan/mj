@@ -358,38 +358,7 @@ footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40
       </div>
       <div class="instr-card" onclick="showPage('banjo')" style="background:rgba(255,255,255,0.04);border-color:rgba(232,135,26,0.2);color:#fff">
         <div class="icon" style="display:flex;align-items:center;justify-content:center">
-          <svg viewBox="0 0 76 92" width="46" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs><radialGradient id="bj"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#b8860b"/></radialGradient></defs>
-            <circle cx="50" cy="64" r="25" fill="#b8860b" stroke="#7a5800" stroke-width="2"/>
-            <circle cx="50" cy="64" r="20.5" fill="#f0e0a0" stroke="#c8a030" stroke-width="1.5"/>
-            <circle cx="50" cy="64" r="20.5" fill="url(#bj)" opacity=".25"/>
-            <circle cx="50" cy="64" r="3.5" fill="#c8a030" opacity=".35"/>
-            <rect x="47" y="36" width="6" height="4"  rx="1.5" fill="#c0c0c0" stroke="#999" stroke-width=".5"/>
-            <rect x="47" y="88" width="6" height="4"  rx="1.5" fill="#c0c0c0" stroke="#999" stroke-width=".5"/>
-            <rect x="22" y="61" width="4" height="6"  rx="1.5" fill="#c0c0c0" stroke="#999" stroke-width=".5"/>
-            <rect x="74" y="61" width="4" height="6"  rx="1.5" fill="#c0c0c0" stroke="#999" stroke-width=".5"/>
-            <rect x="28" y="41" width="4" height="5"  rx="1.5" fill="#c0c0c0" stroke="#999" stroke-width=".5"/>
-            <rect x="66" y="41" width="4" height="5"  rx="1.5" fill="#c0c0c0" stroke="#999" stroke-width=".5"/>
-            <rect x="28" y="78" width="4" height="5"  rx="1.5" fill="#c0c0c0" stroke="#999" stroke-width=".5"/>
-            <rect x="66" y="78" width="4" height="5"  rx="1.5" fill="#c0c0c0" stroke="#999" stroke-width=".5"/>
-            <rect x="10" y="4" width="7.5" height="66" rx="3.75" fill="#c08030" stroke="#8a5020" stroke-width="1.2"/>
-            <rect x="8" y="2" width="11.5" height="12" rx="3" fill="#7a4010"/>
-            <circle cx="8"  cy="6"  r="2.8" fill="#d8d8d8" stroke="#aaa" stroke-width=".6"/>
-            <circle cx="20" cy="6"  r="2.8" fill="#d8d8d8" stroke="#aaa" stroke-width=".6"/>
-            <circle cx="8"  cy="12" r="2.8" fill="#d8d8d8" stroke="#aaa" stroke-width=".6"/>
-            <circle cx="20" cy="12" r="2.8" fill="#d8d8d8" stroke="#aaa" stroke-width=".6"/>
-            <circle cx="8"  cy="34" r="2.3" fill="#d8d8d8" stroke="#aaa" stroke-width=".5"/>
-            <line x1="13" y1="15" x2="13" y2="68" stroke="#d4c060" stroke-width=".85"/>
-            <line x1="15" y1="15" x2="15" y2="68" stroke="#d4c060" stroke-width=".85"/>
-            <line x1="17" y1="15" x2="17" y2="68" stroke="#d4c060" stroke-width=".85"/>
-            <line x1="19" y1="15" x2="19" y2="68" stroke="#d4c060" stroke-width=".85"/>
-            <line x1="10" y1="34" x2="10" y2="68" stroke="#d4c060" stroke-width=".7" opacity=".75"/>
-            <line x1="11" y1="22" x2="21" y2="22" stroke="#8a5020" stroke-width=".9"/>
-            <line x1="11" y1="30" x2="21" y2="30" stroke="#8a5020" stroke-width=".9"/>
-            <line x1="11" y1="40" x2="21" y2="40" stroke="#8a5020" stroke-width=".9"/>
-            <line x1="11" y1="50" x2="21" y2="50" stroke="#8a5020" stroke-width=".9"/>
-            <line x1="11" y1="58" x2="21" y2="58" stroke="#8a5020" stroke-width=".9"/>
-          </svg>
+          <img src="images/banjo.png" alt="Banjo" style="width:48px;height:48px;object-fit:contain;mix-blend-mode:multiply;"/>
         </div>
         <div class="name">Banjo</div><div class="sub">5-String Bluegrass</div>
       </div>
@@ -617,7 +586,10 @@ footer { background: var(--deep); color: rgba(255,255,255,0.5); padding: 48px 40
 
 <!-- BANJO -->
 <div class="page" id="page-banjo">
-  <div class="page-header"><div class="page-header-eyebrow">Strings</div><h1 class="page-header-title">🪘 Banjo</h1><p class="page-header-sub">Folk, bluegrass and beyond — a uniquely joyful instrument</p></div>
+  <div class="page-header" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+    <img src="images/banjo.png" alt="Banjo" style="width:90px;height:90px;object-fit:contain;flex-shrink:0;mix-blend-mode:multiply;"/>
+    <div><div class="page-header-eyebrow">Strings</div><h1 class="page-header-title">Banjo</h1><p class="page-header-sub">Folk, bluegrass and beyond — a uniquely joyful instrument</p></div>
+  </div>
   <div class="section">
     <p class="lead">Banjo brings an irresistible energy to folk and country music. Our banjo lessons cover 5-string and tenor banjo, fingerpicking (Scruggs style), frailing/clawhammer, and cross-over to Indian folk tunes.</p>
     <div class="notation-box"><h4>Banjo — G Major Open Tuning (gDGBD)</h4><div class="notation-row"><div class="notation-col"><h5>Sargam — Key G</h5><div class="notes-strip"><span class="note sargam">Sa</span><span class="note sargam">Re</span><span class="note sargam">Ga</span><span class="note sargam">Ma</span><span class="note sargam">Pa</span><span class="note sargam">Dha</span><span class="note sargam">Ni</span><span class="note sargam">Ṡa</span></div></div><div class="notation-col"><h5>Staff — Key G (1 Sharp)</h5><div class="staff-line">𝄞# ♩G ♩A ♩B ♩C ♩D ♩E ♩F# ♩G'</div></div></div></div>
